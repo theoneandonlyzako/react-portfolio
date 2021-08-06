@@ -12,23 +12,23 @@ function Header() {
   return(
     <>
       <Navbar collapseOnSelect expand="lg" className="text-light bg-dark shadow">
-        <LinkContainer to="/about">
+        <LinkContainer className="text-light" to="/">
         <Navbar.Brand>Zak Stamps</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <LinkContainer to="/about">
-              <Nav.Link>About Me</Nav.Link>
+              <Nav.Link className="text-light">About Me</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/projects">
-              <Nav.Link>Projects</Nav.Link>
+              <Nav.Link className="text-light">Projects</Nav.Link>
             </LinkContainer>
             <LinkContainer to="resume">
-              <Nav.Link>Resume</Nav.Link>
+              <Nav.Link className="text-light">Resume</Nav.Link>
             </LinkContainer>
             <LinkContainer to="contact">
-              <Nav.Link>Contact</Nav.Link>
+              <Nav.Link className="text-light">Contact</Nav.Link>
             </LinkContainer>
           </Nav>
           <ContactIcons></ContactIcons>

@@ -32,10 +32,12 @@ main {
 .terminal {
   height: 100vh;
 }
-
+.contact-bg {
+  background-color: var(--second-color);
+}
 /* Start Text Styles */
 a {
-  color: #5486c0;
+  color: #dc5a26;
 }
 a:hover, .form-message {
   color: #dc5a26;

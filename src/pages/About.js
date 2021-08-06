@@ -21,7 +21,7 @@ function About() {
                 height="300vw" />
             </Col>
             <Col className="pl-md-5">
-              <h1 className="display-4 text-center text-lg-left text-light p-0-lg pt-4">
+              <h1 className="display-4 text-center text-lg-left text-dark p-0-lg pt-4">
                 hello, world!</h1>
               <p className="text-dark text-center text-md-left h3">
                 I'm Zak Stamps, a full-stack developer based in the San Francisco Bay Area.

@@ -37,7 +37,7 @@ function Terminal(props) {
           </Typist>
         </span>
         {showSuccess && 
-          <p className="text-success mt-3">Redirecting...</p>
+          <p className="text-success mt-3">Loading...</p>
         }
       </h1>
     </div>

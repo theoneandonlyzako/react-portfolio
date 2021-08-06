@@ -13,13 +13,14 @@ function Resume() {
       <Jumbotron fluid className="p-5 mb-0 shadow">
         <Container className="text-center">
           <div className="p-md-5">
-            <h1>Skills <span>&amp;</span> Experience</h1>
+            <h1 className="text-dark">Skills <span>&amp;</span> Experience</h1>
           </div>
         </Container>
       </Jumbotron>
 
       <Container className="py-5 d-flex flex-column flex-md-row justify-content-center align-items-center">
         <Button
+          className="shadow"
           href="https://drive.google.com/file/d/17wyyYjDlnfGauq_u1YDX3I0WZxsvgkbA/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer">

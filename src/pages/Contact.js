@@ -13,16 +13,16 @@ import ContactForm from '../components/ContactForm';
 function Contact() {
   return (
     <>
-      <Jumbotron fluid className="p-5 mb-0">
+      <Jumbotron fluid className="p-5 mb-0 shadow">
         <Container className="text-center">
           <div className="p-md-5">
-            <h1>Get in Touch</h1>
+            <h1 className="text-dark">Get in Touch</h1>
           </div>
         </Container>
       </Jumbotron>
 
-      <Container fluid className="shadow bg-light mb-5">
-        <Container className="p-4">
+      <Container fluid className="contact-bg mb-5">
+        <Container className="p-4 shadow contact-bg">
           <Row>
             <Col>
               <Container>

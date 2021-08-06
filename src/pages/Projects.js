@@ -73,7 +73,7 @@ function Projects() {
       <Jumbotron fluid className="p-5 mb-0 shadow">
         <Container className="text-center">
           <div className="p-md-5">
-            <h1>Some of my Projects</h1>
+            <h1 className="text-dark">Some of my Projects</h1>
           </div>
         </Container>
       </Jumbotron>

@@ -52,27 +52,27 @@ function ContactForm() {
     <Form onSubmit={sendEmail} id="contactForm">
       <Form.Group controlId="name">
         <Form.Label>Your Name</Form.Label>
-        <Form.Control required name="name" placeholder="John Doe" onBlur={handleChange} />
+        <Form.Control className="shadow" required name="name" placeholder="John Doe" onBlur={handleChange} />
       </Form.Group>
 
       <Form.Group controlId="email">
         <Form.Label>Your Email</Form.Label>
-        <Form.Control required name="email" type="email" placeholder="jdoe@gmail.com"  onBlur={handleChange} />
+        <Form.Control className="shadow" required name="email" type="email" placeholder="jdoe@gmail.com"  onBlur={handleChange} />
       </Form.Group>
 
       <Form.Group controlId="subject">
         <Form.Label>Subject</Form.Label>
-        <Form.Control required name="subject" placeholder="Subject" onBlur={handleChange} />
+        <Form.Control className="shadow" required name="subject" placeholder="Subject" onBlur={handleChange} />
       </Form.Group>
 
       <Form.Group controlId="message">
         <Form.Label>Message</Form.Label>
-        <Form.Control required name="message" as="textarea" rows="5" placeholder="Message Here" onBlur={handleChange} />
+        <Form.Control className="shadow" required name="message" as="textarea" rows="5" placeholder="Message Here" onBlur={handleChange} />
       </Form.Group>
 
       {formMessage && <p className="form-message">{formMessage}</p>}
 
-      <Button type="submit">Submit</Button>
+      <Button className="shadow" type="submit">Submit</Button>
     </Form>
   )
 }
