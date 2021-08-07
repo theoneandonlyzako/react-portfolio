@@ -7,7 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
-import Terminal from './pages/Terminal';
+// import Terminal from './pages/Terminal';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import NoMatch from './pages/NoMatch';
@@ -25,7 +25,7 @@ function App(){
         <Header/>
         <main>
           <Switch>
-            <Route exact path="/" component={Terminal} />
+            <Route exact path="/" component={About} />
             <Route exact path="/about" component={About} />
             <Route exact path="/projects" component={Projects} />
             <Route exact path="/resume" component={Resume} />
