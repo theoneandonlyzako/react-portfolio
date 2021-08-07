@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 // import custom components
 import Header from './components/Header';
@@ -25,12 +25,12 @@ function App(){
         <Header/>
         <main>
           <Switch>
-            <Route exact path="/" component={Terminal} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/projects" component={Projects} />
-            <Route exact path="/resume" component={Resume} />
-            <Route exact path="/contact" component={Contact} />
-            <Route path="/*" component={Terminal} />
+            <Route exact path="#/" component={Terminal} />
+            <Route exact path="#/about" component={About} />
+            <Route exact path="#/projects" component={Projects} />
+            <Route exact path="#/resume" component={Resume} />
+            <Route exact path="#/contact" component={Contact} />
+            <Route path="#/*" component={Terminal} />
           </Switch>
         </main>
         <Footer/>
