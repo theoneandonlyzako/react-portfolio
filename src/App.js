@@ -25,12 +25,12 @@ function App(){
         <Header/>
         <main>
           <Switch>
-            <Route exact path="#/" component={Terminal} />
-            <Route exact path="#/about" component={About} />
-            <Route exact path="#/projects" component={Projects} />
-            <Route exact path="#/resume" component={Resume} />
-            <Route exact path="#/contact" component={Contact} />
-            <Route path="#/*" component={Terminal} />
+            <Route exact path="/" component={Terminal} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/projects" component={Projects} />
+            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/contact" component={Contact} />
+            <Route path="/*" component={Terminal} />
           </Switch>
         </main>
         <Footer/>
