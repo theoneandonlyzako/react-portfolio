@@ -1,16 +1,6 @@
 :root {
   --main-color: #cacaca;
   --second-color: #cccccc;
-  --text-color-lt:  #b9b9b9;
-  --text-color-drk:  #5B5656;
-  --hover-color: #7FCD91;
-  --header-color: #191919;
-  --button-primary: #009452;
-  --button-hover: #00b966;
-  --button-delete: #d9534f;
-  --button-delete-hover: #c30b05;
-  --info: #5bc0de;
-  --success: #009452;
 }
 
 main {
