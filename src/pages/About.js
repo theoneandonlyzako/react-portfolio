@@ -24,7 +24,7 @@ function About() {
               <h1 className="display-4 text-center text-lg-left text-dark p-0-lg pt-4">
                 hello, world!</h1>
               <p className="text-dark text-center text-md-left h3">
-                I'm Zak Stamps, a full-stack developer based in the San Francisco Bay Area.
+                I'm Zak Stamps, a full-stack web developer based in the San Francisco Bay Area.
               </p>
             </Col>
           </Row>
@@ -36,20 +36,25 @@ function About() {
           <h3>About Me</h3>
           <p>
             I have been immersed in the wide world of audio production for the
-            last 30 years spanning the worlds of live sound, broadcast audio,
-            audio post-production, and music production. However,
-            I am currently focusing primarily on Full Stack Web Development
-            and programming and absolutely Love what I do.
+            past 30 years spanning the worlds of live sound, broadcast audio,
+            audio post-production, and music production.
           </p>
           <p>
-            I started programming once I learned that I could <a href="https://automatetheboringstuff.com/" rel="noopener noreferrer" target="_blank">
-            automate the boring stuff</a>. As soon as I learned Python, there was no turning back. 
-            A new job, some CS classes, and a full-stack bootcamp later,
-            I'm looking to transition into a full-time engineering role.
+            I started programming once around the release of Myspace in 2002 with basic HTML hacks.
+            As soon as I learned Javascript in 2021, there was no turning back.
+            As life evolved and technologies become more and more the norm,
+            I decided to get my feet wet in the world of webdevelopment and attended
+            Berkeley bootcamp for coding.
+            After recieving my certificate in Full Stack Web Development,
+            I plan to move forward with continued education in computer science and
+            software development as time progresses. So far, I'm absolutely Loving this industry
+            and looking for every way possible to learn more of the skill. In the mean time,
+            I'm looking to transition into a full-time engineering role so that I can be emmersed
+            in the life and do good in this world.
           </p>
           <p>
-            When I'm not in front of a screen, you might find me cooking, making pottery, 
-            or spending time with friends and family.
+            When I'm not in front of a screen, you might find me cooking, spending too much time gardening,
+            or spending precious time with the family. Thanks for stoping by!
           </p>
         </Container>
       </Container>
