@@ -19,10 +19,10 @@ function Terminal(props) {
         <p><span>&#x203A;</span></p>
         <span>
           <Typist
-            avgTypingDelay={150}
+            avgTypingDelay={100}
             stdTypingDelay={100}
             onTypingDone={onTypingDone}
-            startDelay={100}
+            startDelay={75}
             cursor={{
               blink: true,
               hideWhenDone: false

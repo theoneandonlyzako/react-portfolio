@@ -40,20 +40,20 @@ function About() {
             audio post-production, and music production.
           </p>
           <p>
-            I started programming once around the release of Myspace in 2002 with basic HTML hacks.
+            I started programming around the release of Myspace in 2003 with basic HTML hacks.
             As soon as I learned Javascript in 2021, there was no turning back.
             As life evolved and technologies become more and more the norm,
             I decided to get my feet wet in the world of webdevelopment and attended
-            Berkeley bootcamp for coding.
+            Berkeley University bootcamp for coding.
             After recieving my certificate in Full Stack Web Development,
             I plan to move forward with continued education in computer science and
             software development as time progresses. So far, I'm absolutely Loving this industry
             and looking for every way possible to learn more of the skill. In the mean time,
-            I'm looking to transition into a full-time engineering role so that I can be emmersed
+            I'm looking to transition into a full-time engineering role so that I can be more emmersed
             in the life and do good in this world.
           </p>
           <p>
-            When I'm not in front of a screen, you might find me cooking, spending too much time gardening,
+            When I'm not in front of a screen, you might find me cooking, spending way too much time gardening,
             or spending precious time with the family. Thanks for stoping by!
           </p>
         </Container>
