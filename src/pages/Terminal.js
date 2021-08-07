@@ -19,13 +19,13 @@ function Terminal(props) {
         <p><span>&#x203A;</span></p>
         <span>
           <Typist
-            avgTypingDelay={100}
-            stdTypingDelay={50}
+            avgTypingDelay={150}
+            stdTypingDelay={100}
             onTypingDone={onTypingDone}
             startDelay={100}
             cursor={{
               blink: true,
-              hideWhenDone: true
+              hideWhenDone: false
             }}
           >
             <p><span>&#x203A;</span></p>
@@ -37,7 +37,7 @@ function Terminal(props) {
           </Typist>
         </span>
         {showSuccess && 
-          <p className="text-success mt-3">Loading...</p>
+          <p className="text-success mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loading...</p>
         }
       </h1>
     </div>

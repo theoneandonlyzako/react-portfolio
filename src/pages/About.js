@@ -35,7 +35,7 @@ function About() {
         <Container className="p-5 text-light bg-dark">
           <h3>About Me</h3>
           <p>
-            AAAAAAA I have been immersed in the wide world of audio production for the
+            I have been immersed in the wide world of audio production for the
             past 30 years spanning the worlds of live sound, broadcast audio,
             audio post-production, and music production.
           </p>
