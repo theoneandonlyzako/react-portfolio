@@ -38,7 +38,7 @@ function ContactForm() {
   function sendEmail(e) {
       e.preventDefault();
       
-      emailjs.sendForm('gmail', 'service_ejrllpy', '#contactForm', 'user_qIcnWbkHEJMeNTrg0lJcu')
+      emailjs.sendForm('service_ejrllpy', 'template_3t063q8', '#contactForm', 'user_qIcnWbkHEJMeNTrg0lJcu')
       .then(function(response) {
         console.log(response.text);
         setFormMessage("Message sent!");
