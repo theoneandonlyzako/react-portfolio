@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/react-portfolio/static/css/main.690580d0.chunk.css",
-    "main.js": "/react-portfolio/static/js/main.07e80b65.chunk.js",
-    "main.js.map": "/react-portfolio/static/js/main.07e80b65.chunk.js.map",
+    "main.js": "/react-portfolio/static/js/main.57009158.chunk.js",
+    "main.js.map": "/react-portfolio/static/js/main.57009158.chunk.js.map",
     "runtime-main.js": "/react-portfolio/static/js/runtime-main.213b1880.js",
     "runtime-main.js.map": "/react-portfolio/static/js/runtime-main.213b1880.js.map",
     "static/css/2.9ad4a810.chunk.css": "/react-portfolio/static/css/2.9ad4a810.chunk.css",
-    "static/js/2.c94041d9.chunk.js": "/react-portfolio/static/js/2.c94041d9.chunk.js",
-    "static/js/2.c94041d9.chunk.js.map": "/react-portfolio/static/js/2.c94041d9.chunk.js.map",
+    "static/js/2.ce73187f.chunk.js": "/react-portfolio/static/js/2.ce73187f.chunk.js",
+    "static/js/2.ce73187f.chunk.js.map": "/react-portfolio/static/js/2.ce73187f.chunk.js.map",
     "index.html": "/react-portfolio/index.html",
-    "precache-manifest.957f3becd4f650f7094123e4e4f908c4.js": "/react-portfolio/precache-manifest.957f3becd4f650f7094123e4e4f908c4.js",
+    "precache-manifest.d74757d4a45446bcfd04e505070127fa.js": "/react-portfolio/precache-manifest.d74757d4a45446bcfd04e505070127fa.js",
     "service-worker.js": "/react-portfolio/service-worker.js",
     "static/css/2.9ad4a810.chunk.css.map": "/react-portfolio/static/css/2.9ad4a810.chunk.css.map",
     "static/css/main.690580d0.chunk.css.map": "/react-portfolio/static/css/main.690580d0.chunk.css.map",
-    "static/js/2.c94041d9.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.c94041d9.chunk.js.LICENSE.txt",
+    "static/js/2.ce73187f.chunk.js.LICENSE.txt": "/react-portfolio/static/js/2.ce73187f.chunk.js.LICENSE.txt",
     "static/media/blog.png": "/react-portfolio/static/media/blog.ff2b7924.png",
     "static/media/budget_tracker.png": "/react-portfolio/static/media/budget_tracker.ea253989.png",
     "static/media/generator.png": "/react-portfolio/static/media/generator.66249afd.png",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.213b1880.js",
     "static/css/2.9ad4a810.chunk.css",
-    "static/js/2.c94041d9.chunk.js",
+    "static/js/2.ce73187f.chunk.js",
     "static/css/main.690580d0.chunk.css",
-    "static/js/main.07e80b65.chunk.js"
+    "static/js/main.57009158.chunk.js"
   ]
 }
