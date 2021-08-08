@@ -7,10 +7,10 @@ function Terminal(props) {
   const onTypingDone = async () => {
     window.setTimeout(function() {
       setShowSuccess(true);
-    }, 1000);
+    }, 2000);
     window.setTimeout(function() {
       props.history.push('/about');
-    }, 2500);
+    }, 3000);
   };
 
   return (
@@ -19,10 +19,10 @@ function Terminal(props) {
         <p><span>&#x203A;</span></p>
         <span>
           <Typist
-            avgTypingDelay={100}
-            stdTypingDelay={100}
+            avgTypingDelay={200}
+            stdTypingDelay={50}
             onTypingDone={onTypingDone}
-            startDelay={75}
+            startDelay={200}
             cursor={{
               blink: true,
               hideWhenDone: false
