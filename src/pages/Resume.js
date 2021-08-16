@@ -21,7 +21,7 @@ function Resume() {
       <Container className="py-5 d-flex flex-column flex-md-row justify-content-center align-items-center">
         <Button
           className="shadow"
-          href="https://drive.google.com/file/d/17wyyYjDlnfGauq_u1YDX3I0WZxsvgkbA/view?usp=sharing"
+          href="https://drive.google.com/file/d/1jNvubNwteV2ekkqgRJ6PvyO7_KegWvXM/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer">
             View My Resume
