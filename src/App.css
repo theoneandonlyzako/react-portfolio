@@ -88,8 +88,47 @@ ul.no-bullets {
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.2),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
+.card-body{
+  padding: 15px;
+}
 .projects .card:hover{
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 /* End Card Animation Styles */
+
+@media only screen and (max-width: 768px) {
+  .card {
+    margin: 20px;
+  }
+  .card-deck {
+    display: flex;
+    flex-direction: column;
+    padding: 15vw;
+    padding-top: 0vw;
+  }
+  li {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  .card {
+    margin: 10px;
+  }
+  .card-deck {
+    display: flex;
+    flex-direction: column;
+    padding: 5vw;
+    padding-top: 0vw;
+  }
+  li {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+}

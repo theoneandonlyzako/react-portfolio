@@ -15,10 +15,18 @@ import passgenImg from '../assets/image/generator.png';
 import noteKeeperImg from '../assets/image/notes.png';
 import budgetTrackerImage from '../assets/image/budget_tracker.png';
 import weatherDashboardImage from '../assets/image/weather_dashboard.png';
-import deepThoughtsImg from '../assets/image/blog.png';
+import mykissImg from '../assets/image/site-kiss.png';
 
 function Projects() {
   const projects = [
+    {
+      "title": "My Kiss Anime",
+      "description": "A MERN stack social media application with logins to showcaseyour favorite Animes",
+      "key": "kiss",
+      "imageSrc": mykissImg,
+      "repository": "https://github.com/theoneandonlyzako/kiss-anime",
+      "deployed_app": "https://my-kiss-anime.herokuapp.com/"
+    },
     {
       "title": "The Pursuit of Hoppiness",
       "description": "An app for discovering local breweries in your area",
@@ -59,14 +67,7 @@ function Projects() {
       "repository": "https://github.com/theoneandonlyzako/Weather-app",
       "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"
     },
-    {
-      "title": "Deep Thoughts",
-      "description": "A MERN stack social media application with logins",
-      "key": "thoughts",
-      "imageSrc": deepThoughtsImg,
-      "repository": "https://github.com/theoneandonlyzako/deep-thoughts",
-      "deployed_app": "https://zaks-deep-houghts.herokuapp.com/"
-    }
+
   ]
   return (
     <>
