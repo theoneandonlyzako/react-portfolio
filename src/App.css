@@ -1,6 +1,6 @@
 :root {
   --main-color: #cacaca;
-  --second-color: #cccccc;
+  --second-color: #d6d6d6;
 }
 
 main {
@@ -10,6 +10,15 @@ main {
   background-color: var(--main-color);
   font-family: 'Lato', sans-serif;
   min-height: 90vh;
+}
+
+.p-text {
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.p-text-color {
+  color: var(--second-color);
 }
 
 .row > div[class*='col-'] {
@@ -27,19 +36,29 @@ main {
 }
 /* Start Text Styles */
 a {
-  color: #dc5a26;
+  color: var(--second-color);
 }
 a:hover, .form-message {
   color: #dc5a26;
   text-decoration: none;
 }
 h1, h3, h4 {
+  /* color: #dc5a26; */
   font-family: 'Roboto Mono', monospace;
 }
+
+.h4-contact {
+  color: var(--second-color);
+}
 h3, h4 {
-  color: #dc5a26;
+  /* color: var(--second-color); */
   padding-bottom: 16px;
 }
+
+.form-label {
+  color: var(--second-color);
+}
+
 ul.no-bullets {
   list-style-type: none;
 }

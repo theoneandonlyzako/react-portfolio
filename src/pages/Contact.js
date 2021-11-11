@@ -21,20 +21,12 @@ function Contact() {
         </Container>
       </Jumbotron>
 
-      <Container fluid className="contact-bg mb-5">
-        <Container className="p-4 shadow contact-bg">
+      <Container fluid className="mt-5 mb-0">
+        <Container className="p-4 shadow contact-bg bg-dark">
           <Row>
-            <Col>
+            <Col sm={12} md={6} lg={12} className="pt-sm-4 pt-lg-0">
               <Container>
-                <h4>Contact Info</h4>
-                <p><span><i className="far fa-envelope pr-3"></i></span>zakstamps@gmail.com</p>
-                <p><span><i className="fab fa-github pr-3"></i></span> zakstamps</p>
-                <p><span><i className="fab fa-linkedin pr-3"></i></span> zak-stamps</p>
-              </Container>
-            </Col>
-            <Col sm={12} md={6} lg={8} className="pt-sm-4 pt-lg-0">
-              <Container>
-                <h4>Send a Message</h4>
+                <h4 class="h4-contact">Send Me a Message</h4>
                 <ContactForm />
               </Container>
             </Col>

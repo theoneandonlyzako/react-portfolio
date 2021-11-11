@@ -30,7 +30,7 @@ function Resume() {
 
       <Container>
         <CardDeck>
-          <Card>
+          <Card className="p-2 text-light bg-dark">
             <Card.Body>
               <h3>Education</h3>
               <ul>
@@ -41,7 +41,7 @@ function Resume() {
               </ul>
             </Card.Body>
           </Card>
-          <Card>
+          <Card className="p-2 text-light bg-dark">
             <Card.Body>
               <h3>Skills</h3>
               <ul>
@@ -55,7 +55,7 @@ function Resume() {
               </ul>
             </Card.Body>
           </Card>
-          <Card>
+          <Card className="p-2 text-light bg-dark">
             <Card.Body>
               <h3>Frontend Tech</h3>
               <ul>
@@ -68,7 +68,7 @@ function Resume() {
               </ul>
             </Card.Body>
           </Card>
-          <Card>
+          <Card className="p-2 text-light bg-dark">
             <Card.Body>
               <h3>Backend Tech</h3>
               <ul>

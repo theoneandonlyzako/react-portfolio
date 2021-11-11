@@ -19,19 +19,19 @@ function Terminal(props) {
         <p><span>&#x203A;</span></p>
         <span>
           <Typist
-            avgTypingDelay={200}
+            avgTypingDelay={150}
             stdTypingDelay={50}
             onTypingDone={onTypingDone}
-            startDelay={200}
+            startDelay={50}
             cursor={{
               blink: true,
               hideWhenDone: false
             }}
           >
             <p><span>&#x203A;</span></p>
-            <Typist.Delay ms={150}></Typist.Delay>
+            <Typist.Delay ms={100}></Typist.Delay>
             <p><span>&#x203A;</span></p>
-            <Typist.Delay ms={150}></Typist.Delay>
+            <Typist.Delay ms={50}></Typist.Delay>
             <span className="pr-2 pr-md-4">&#x203A;</span>
             <span className="text-light">iAmZakStamps();</span>
           </Typist>
