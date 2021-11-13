@@ -4,7 +4,7 @@ A personal, portfolio used for promoting and showcasing my work as a professiona
 ## Links
 
 Repo Link: https://github.com/theoneandonlyzako/react-portfolio <br/>
-Deployed Link: https://theoneandonlyzako.github.io/react-portfolio/<br/><br/>
+Deployed Link: https://zakstamps.com<br/><br/>
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
