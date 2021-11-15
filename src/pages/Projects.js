@@ -17,6 +17,7 @@ import budgetTrackerImage from '../assets/image/budget_tracker.png';
 import weatherDashboardImage from '../assets/image/weather_dashboard.png';
 import mykissImg from '../assets/image/site-kiss.png';
 
+
 function Projects() {
   const projects = [
     {
@@ -89,6 +90,32 @@ function Projects() {
             )
           })}
         </Row>
+      </Container>
+
+      <Container className="p-3">
+        <Row>
+          <div class="video-box">
+            <div class="video">
+              <h4 class="video-head">Theatre</h4>
+                <iframe src="https://www.youtube.com/embed/-Db0ye5toZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video">
+              <h4 class="video-head">Producer</h4>
+                <iframe src="https://www.youtube.com/embed/5x4wvG-n1Kk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video">
+              <h4 class="video-head">Live Mix</h4>
+                <iframe src="https://www.youtube.com/embed/usj7oG3tWSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video">
+              <h4 class="video-head">Post Mix</h4>
+                <iframe src="https://www.youtube.com/embed/rGP7KTZNdzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          </Row>
       </Container>
     </>
   )

@@ -39,7 +39,7 @@ a {
   color: var(--second-color);
 }
 a:hover, .form-message {
-  color: #dc5a26;
+  color: #0d6efd;
   text-decoration: none;
 }
 h1, h3, h4 {
@@ -61,6 +61,32 @@ h3, h4 {
 
 ul.no-bullets {
   list-style-type: none;
+}
+
+.video-box {
+  /* text-align:center; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+}
+
+.video {
+  text-align: center;
+  padding: 0vw;
+  padding-top: 0vw;
+  align-items: center;
+  padding: 5px;
+  margin: auto;
+}
+iframe {
+  padding: 0vw;
+  padding-top: 0vw;
+  align-items: center;
+  padding: 5px;
+  margin: auto;
+  width: 480px;
+  height: 320px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -129,6 +155,11 @@ ul.no-bullets {
   li {
     font-size: 20px;
   }
+
+  iframe {
+    width: 320px;
+    height: 240px;
+  }
 }
 
 @media only screen and (max-width: 488px) {
@@ -149,5 +180,12 @@ ul.no-bullets {
   }
   h3 {
     font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 288px) {
+  iframe {
+    width: 240px;
+    height: 180px;
   }
 }
