@@ -24,6 +24,9 @@ function Header() {
             <LinkContainer to="/projects">
               <Nav.Link className="text-light">Projects</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/gallery">
+              <Nav.Link className="text-light">Gallery</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="resume">
               <Nav.Link className="text-light">Resume</Nav.Link>
             </LinkContainer>
