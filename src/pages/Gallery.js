@@ -37,14 +37,14 @@ function Gallerys() {
   const gallerys = [
     {
       "title": "Mic Test",
-      "description": "Me testing a new install of the Waves LV1 system",
+      "description": "Testing the new install of the Waves LV1 system for NNC",
       "key": "mic-test",
       "imageSrc": zak1,
       // "deployed_app": "https://photos.google.com/share/AF1QipNTliuCTKsS4A5nYGiGQjSyTNnuSyijPg7AS74AHheddn0iOyJKDnXe4uaEfYwglg/photo/AF1QipOy6w1YPEvN1ITLjZxdUDvd2LmSl_InFDsvKltg?key=SDlUODR1OG9zV1ZGaHJuaGcwSlJucTFZWHlodEZB"
     },
     {
       "title": "Monitors",
-      "description": "Running Monitors for RED",
+      "description": "Running Monitors!",
       "key": "monitors",
       "imageSrc": zak2,
       // "deployed_app": "https://photos.google.com/share/AF1QipNTliuCTKsS4A5nYGiGQjSyTNnuSyijPg7AS74AHheddn0iOyJKDnXe4uaEfYwglg/photo/AF1QipOnOu_gABfBReCdslGhuuRJweoz41lypn7bkJ6D?key=SDlUODR1OG9zV1ZGaHJuaGcwSlJucTFZWHlodEZB"
@@ -182,7 +182,7 @@ function Gallerys() {
       <Jumbotron fluid className="p-5 mb-0 shadow">
         <Container className="text-center">
           <div className="p-md-5">
-            <h1 className="text-dark">Some Pictures</h1>
+            <h1 className="text-dark">Picture Gallery</h1>
           </div>
         </Container>
       </Jumbotron>

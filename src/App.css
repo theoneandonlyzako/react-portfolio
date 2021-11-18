@@ -89,8 +89,9 @@ iframe {
   height: 320px;
 }
 
-img:hover {
+.gallery-img:hover {
   transform: scale(1.35); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transition-duration: 1s;
 }
 
 @media only screen and (max-width: 600px) {

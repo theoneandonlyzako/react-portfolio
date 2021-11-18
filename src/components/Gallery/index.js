@@ -18,7 +18,7 @@ function Gallery({gallery}) {
             {gallery.description}
           </Card.Subtitle>
         <a href={gallery.deployed_app} target="_blank" rel="noopener noreferrer">
-          <Card.Img src={gallery.imageSrc} className="pt-4"/>
+          <Card.Img src={gallery.imageSrc} className="pt-4 gallery-img"/>
         </a>
         </Card.Body>
     </Card>
