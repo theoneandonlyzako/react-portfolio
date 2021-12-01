@@ -78,16 +78,16 @@ function About() {
             Myspace in 2003 with basic HTML hacks and python microchip programming in 2012.
             As soon as I learned Javascript in 2021, there was no turning back.
             As life evolved and technologies become more and more the norm,
-            I decided to get my feet wet in the world of webdevelopment and attended
+            I decided to get my feet wet in the world of web development and attended
             Berkeley University bootcamp for coding.
-            After recieving my certificate in Full Stack Web Development,
+            After receiving my certificate in Full Stack Web Development,
             I plan to move forward with continued education in computer science and
             software development as time progresses. So far, I'm absolutely Loving this industry
             and looking for every way possible to learn more of the skill.
           </p>
           <p class="p-text p-text-color">
             When I'm not in front of a screen, you might find me cooking, spending way too much time gardening,
-            or spending precious time with the family. Thanks for stoping by!
+            or spending precious time with the family. Thanks for stopping by!
           </p>
         </Container>
       </Container>

@@ -50,8 +50,8 @@ function Gallerys() {
       // "deployed_app": "https://photos.google.com/share/AF1QipNTliuCTKsS4A5nYGiGQjSyTNnuSyijPg7AS74AHheddn0iOyJKDnXe4uaEfYwglg/photo/AF1QipOnOu_gABfBReCdslGhuuRJweoz41lypn7bkJ6D?key=SDlUODR1OG9zV1ZGaHJuaGcwSlJucTFZWHlodEZB"
     },
     {
-      "title": "LV1 Trainning",
-      "description": "Trainning the guys on the new broadcast system",
+      "title": "LV1 Training",
+      "description": "Training the guys on the new broadcast system",
       "key": "lv1-trainning",
       "imageSrc": zak3,
       // "deployed_app": "https://theoneandonlyzako.github.io/passwordGenerator/"
@@ -72,7 +72,7 @@ function Gallerys() {
     },
     {
       "title": "FOH at Stanford",
-      "description": "My Beautiful view at Standford stadium",
+      "description": "My Beautiful view at Stanford University stadium",
       "key": "Stanford",
       "imageSrc": zak6,
       // "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"
@@ -121,7 +121,7 @@ function Gallerys() {
     },
     {
       "title": "FOH at Borel",
-      "description": "My view at the Borel Musical Theatre running rehersal sound for theire showing of FAME!",
+      "description": "My view at the Borel Musical Theatre running rehearsal sound for there showing of FAME!",
       "key": "borel",
       "imageSrc": zak13,
       // "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"
@@ -135,7 +135,7 @@ function Gallerys() {
     },
     {
       "title": "Mic World",
-      "description": "Back Stage at the Fox displaying the craziness of recievers and racks ",
+      "description": "Back Stage at the Fox displaying the craziness of receivers and racks ",
       "key": "mic-world",
       "imageSrc": zak15,
       // "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"
