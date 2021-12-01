@@ -121,7 +121,7 @@ function Gallerys() {
     },
     {
       "title": "FOH at Borel",
-      "description": "My view at the Borel Musical Theatre running rehearsal sound for there showing of FAME!",
+      "description": "My view at the Borel Musical Theatre running rehearsal sound for their showing of FAME!",
       "key": "borel",
       "imageSrc": zak13,
       // "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"
