@@ -93,7 +93,7 @@ function Gallerys() {
     },
     {
       "title": "Mercy Me",
-      "description": "Back Stage view of the keyboard rigs for Mercy Me",
+      "description": "Back Stage view of For King And Country",
       "key": "mercy-me",
       "imageSrc": zak9,
       // "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/"

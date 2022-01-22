@@ -24,7 +24,7 @@ function About() {
               <h1 className="display-4 text-center text-lg-left text-dark p-0-lg pt-4">
                 hello, world!</h1>
               <p className="text-dark text-center text-md-left h4">
-                I'm Zak Stamps, an audio engineer and full-stack web developer based in the San Francisco bay area.
+                I'm Zak Stamps, an audio engineer, Technical Director and full-stack web developer based in the San Francisco bay area.
               </p>
             </Col>
           </Row>
@@ -48,7 +48,7 @@ function About() {
           </p>
 
           <p class="p-text p-text-color">
-            Up until Jan 2021, I spent 11 years focused on audio in Houses of Worship and served as the Technical 
+            I spent 11 years focused on audio in Houses of Worship and served as the Technical 
             Director for a large church in the San Francisco bay area, <u><a href="https://www.newnorth.church/" target="_blank" rel="noopener noreferrer">New North Church</a></u> located in San Bruno, CA 
             for 5 of those years. At New North, I oversaw all technical production-related needs for the Sunday 
             morning experience including mixing, managing and training volunteers and staff. Over the course of 
@@ -80,10 +80,11 @@ function About() {
             As life evolved and technologies become more and more the norm,
             I decided to get my feet wet in the world of web development and attended
             Berkeley University bootcamp for coding.
-            After receiving my certificate in Full Stack Web Development,
+            I received my certificate in Full Stack Web Development in 2021
+            and absolutely Love the field. 
             I plan to move forward with continued education in computer science and
-            software development as time progresses. So far, I'm absolutely Loving this industry
-            and looking for every way possible to learn more of the skill.
+            software development as time progresses. However, I just cannot leave my love for music, I am now the Director of Technology at
+            Northgate Christian Fellowship in Benicia and have teamed up with some amazing people on a mission to reach the un-churched. 
           </p>
           <p class="p-text p-text-color">
             When I'm not in front of a screen, you might find me cooking, spending way too much time gardening,

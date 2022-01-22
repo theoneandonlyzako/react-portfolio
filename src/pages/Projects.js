@@ -106,8 +106,13 @@ function Projects() {
             </div>
 
             <div class="video">
-              <h4 class="video-head">Live Mix</h4>
+              <h4 class="video-head">Live Mix for NNC</h4>
                 <iframe src="https://www.youtube.com/embed/usj7oG3tWSc?rel=0&amp;autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="video">
+              <h4 class="video-head">Live Mix for NGCF</h4>
+                <iframe src="https://www.youtube.com/embed/jD9Uk5NgijE?rel=0&amp;autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="video">
