@@ -14,7 +14,7 @@ function Footer() {
       <Container>
         <Row>
           <Col sm={12} md={6} className="m-md-0">
-            <p className="m-md-0 copyright">© 2021 Zak Stamps</p>
+            <p className="m-md-0 copyright">© 2025 Zak Stamps</p>
           </Col>
           <Col sm={12} md={6} className="d-flex justify-content-md-end justify-content-center">
             <ContactIcons></ContactIcons>
