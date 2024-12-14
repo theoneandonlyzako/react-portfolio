@@ -1,196 +1,64 @@
-:root {
-  --main-color: #cacaca;
-  --second-color: #d6d6d6;
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif; /* Choose your preferred font */
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Dark gray text color */
+  margin: 0; /* Reset default margin */
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-  background-color: var(--main-color);
-  font-family: 'Lato', sans-serif;
-  min-height: 90vh;
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif; /* Choose a heading font */
+  color: #225378; /* Deep blue heading color */
 }
 
-.p-text {
-  font-size: 1.1rem;
-  text-align: justify;
+p {
+  line-height: 1.6; /* Improve readability */
 }
 
-.p-text-color {
-  color: var(--second-color);
+/* Navigation */
+nav {
+  background-color: #225378; /* Deep blue navigation bar */
+  color: white;
+  padding: 1rem;
 }
 
-.row > div[class*='col-'] {
-  display: flex;
-  flex: 1 0 auto;
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center the navigation items */
 }
-.copyright {
-  margin: auto;
+
+nav li {
+  display: inline-block;
+  margin: 0 1rem; 
 }
-.terminal {
-  height: 100vh;
-}
-.contact-bg {
-  background-color: var(--second-color);
-}
-/* Start Text Styles */
-a {
-  color: var(--second-color);
-}
-a:hover, .form-message {
-  color: #0d6efd;
+
+nav a {
+  color: white;
   text-decoration: none;
 }
-h1, h3, h4 {
-  /* color: #dc5a26; */
-  font-family: 'Roboto Mono', monospace;
+
+/* Buttons */
+.button {
+  background-color: #00a8cc; /* Teal button color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  display: inline-block; /* Make it behave like a link */
 }
 
-.h4-contact {
-  color: var(--second-color);
-}
-h3, h4 {
-  /* color: var(--second-color); */
-  padding-bottom: 16px;
+/* Sections */
+section {
+  padding: 2rem;
 }
 
-.form-label {
-  color: var(--second-color);
-}
-
-ul.no-bullets {
-  list-style-type: none;
-}
-
-.video-box {
-  /* text-align:center; */
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: auto;
-}
-
-.video {
+/* Footer */
+footer {
+  background-color: #333; /* Dark gray footer */
+  color: white;
   text-align: center;
-  padding: 0vw;
-  padding-top: 0vw;
-  align-items: center;
-  padding: 5px;
-  margin: auto;
-}
-iframe {
-  padding: 0vw;
-  padding-top: 0vw;
-  align-items: center;
-  padding: 5px;
-  margin: auto;
-  width: 480px;
-  height: 320px;
-}
-
-.gallery-img:hover {
-  transform: scale(1.35); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-  transition-duration: 1s;
-}
-
-@media only screen and (max-width: 600px) {
-  .terminal h1 {
-    font-size: 8vw;
-  }
-}
-/* End Text Styles */
-
-/* Start Jumbotron Styles */
-.jumbotron {
-  background-color: var(--second-color);
-  color: #ffffff;
-}
-.jumbotron .col {
-  margin: auto;
-}
-.jumbotron h1, h2 {
-  text-align: center;
-}
-/* End Jumbotron Styles */
-
-/* Nav Styles */
-.navbar-brand {
-  font-family: 'Roboto Mono', monospace;
-  padding-top: 0px;
-}
-/* End Nav Styles */
-
-/* Button Styles */
-.btn {
-  background-color: #E0A62D;
-  border: 3px solid #E0A62D;
-}
-.btn:hover, .btn:active {
-  background-color: #dc5a26;
-  border: 3px solid #dc5a26;
-}
-/* End Button Styles */
-
-/* Card Animation Styles */
-.card {
-  border-radius: 4px;
-  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-  transition: .3s transform cubic-bezier(.155,1.105,.295,1.2),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-}
-.card-body{
-  padding: 15px;
-}
-.projects .card:hover{
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-}
-/* End Card Animation Styles */
-
-@media only screen and (max-width: 768px) {
-  .card {
-    margin: 20px;
-  }
-  .card-deck {
-    display: flex;
-    flex-direction: column;
-    padding: 15vw;
-    padding-top: 0vw;
-  }
-  li {
-    font-size: 20px;
-  }
-
-  iframe {
-    width: 320px;
-    height: 240px;
-  }
-}
-
-@media only screen and (max-width: 488px) {
-  .card {
-    margin: 10px;
-  }
-  .card-deck {
-    display: flex;
-    flex-direction: column;
-    padding: 5vw;
-    padding-top: 0vw;
-  }
-  li {
-    font-size: 14px;
-  }
-  h1 {
-    font-size: 26px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (max-width: 288px) {
-  iframe {
-    width: 240px;
-    height: 180px;
-  }
+  padding: 1rem;
 }
