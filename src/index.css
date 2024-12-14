@@ -1,66 +1,13 @@
-/* General Styles */
 body {
-  font-family: 'Open Sans', sans-serif; /* Choose your preferred font */
-  background-color: #f8f8f8; /* Light gray background */
-  color: #333; /* Dark gray text color */
-  margin: 0; /* Reset default margin */
-}
-
-/* Typography */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif; /* Choose a heading font */
-  color: #225378; /* Deep blue heading color */
-}
-
-p {
-  line-height: 1.6; /* Improve readability */
-}
-
-/* Navigation */
-nav {
-  background-color: #225378; /* Deep blue navigation bar */
-  color: white;
-  padding: 1rem;
-}
-
-nav ul {
-  list-style: none;
   margin: 0;
-  padding: 0;
-  text-align: center; /* Center the navigation items */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-nav li {
-  display: inline-block;
-  margin: 0 1rem; 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
 }
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Buttons */
-.button {
-  background-color: #00a8cc; /* Teal button color */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  text-decoration: none;
-  display: inline-block; /* Make it behave like a link */
-}
-
-/* Sections */
-section {
-  padding: 2rem;
-}
-
-/* Footer */
-footer {
-  background-color: #333; /* Dark gray footer */
-  color: white;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Add more styles for specific elements as needed */
