@@ -22,11 +22,6 @@ function ContactIcons() {
       "url": "https://github.com/theoneandonlyzako",
       "classes": "fab fa-github"
     },
-    {
-      "name": "Discord",
-      "url": "https://discord.gg/8Ke2z6FW",
-      "classes": "fab fa-discord"
-    },
   ]
 
   return (
