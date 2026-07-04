@@ -45,6 +45,9 @@ function Resume() {
             <Card.Body>
               <h3>Skills</h3>
               <ul>
+                <li>AI Integration</li>
+                <li>AI Agent Development</li>
+                <li>LLM Integration</li>
                 <li>Mac / Windows / Linux</li>
                 <li>IOT Stack</li>
                 <li>Micro Controllers</li>
@@ -60,9 +63,15 @@ function Resume() {
               <h3>Frontend Tech</h3>
               <ul>
                 <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>Next.js</li>
+                <li>Electron</li>
+                <li>React Router</li>
+                <li>Vite</li>
                 <li>HTML</li>
                 <li>CSS</li>
-                <li>React</li>
+                <li>Tailwind CSS</li>
                 <li>Bootstrap</li>
                 <li>jQuery</li>
               </ul>
@@ -72,13 +81,17 @@ function Resume() {
             <Card.Body>
               <h3>Backend Tech</h3>
               <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li>Node</li>
+                <li>Express</li>
                 <li>APIs</li>
                 <li>REST</li>
+                <li>GraphQL</li>
+                <li>Supabase</li>
+                <li>PostgreSQL</li>
                 <li>MongoDB, Mongoose</li>
                 <li>MySQL, Sequelize</li>
-                <li>Express</li>
-                <li>Node</li>
-                <li>GraphQL</li>
               </ul>
             </Card.Body>
           </Card>

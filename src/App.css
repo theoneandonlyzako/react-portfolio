@@ -155,8 +155,11 @@ a:hover {
   border: 1px solid var(--border-strong);
   border-radius: 10px;
 }
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(236,72,153,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(236,72,153,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.35);
 }
 
 /* ---------- Surfaces / glass cards ---------- */
@@ -464,6 +467,16 @@ a:hover {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
+/* Keep the footer on one even line: no stacked top margin on the icons */
+.footer .mt-2 {
+  margin-top: 0;
+}
+/* On mobile, tighten icon spacing so the copyright + icons fit on one row */
+@media (max-width: 768px) {
+  .footer a {
+    margin: 0 0.5rem !important;
+  }
+}
 
 /* ---------- Contact icons ---------- */
 .footer a span i,
@@ -688,4 +701,44 @@ a:hover {
   .lightbox-close, .lightbox-nav { width: 40px; height: 40px; }
   .lightbox-prev { left: 0.5rem; }
   .lightbox-next { right: 0.5rem; }
+}
+
+/* ---------- Resume cards: a glowing line that runs the frame ---------- */
+@property --worm-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.card-deck .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--worm-angle),
+    transparent 0deg 255deg,
+    rgba(139, 92, 246, 0.2) 290deg,
+    var(--accent-1) 325deg,
+    var(--accent-2) 352deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  filter: drop-shadow(0 0 3px rgba(236, 72, 153, 0.5));
+  pointer-events: none;
+  z-index: 3;
+  animation: worm-run 6.5s linear infinite;
+}
+.card-deck .card:nth-child(2)::before { animation-delay: -1.6s; }
+.card-deck .card:nth-child(3)::before { animation-delay: -3.2s; }
+.card-deck .card:nth-child(4)::before { animation-delay: -4.8s; }
+@keyframes worm-run {
+  to { --worm-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-deck .card::before { display: none; }
 }

@@ -16,10 +16,34 @@ import noteKeeperImg from '../assets/image/notes.png';
 import budgetTrackerImage from '../assets/image/budget_tracker.png';
 import weatherDashboardImage from '../assets/image/weather_dashboard.png';
 import mykissImg from '../assets/image/site-kiss.png';
+import producerdashImg from '../assets/image/producerdash.png';
+import prompterflowImg from '../assets/image/prompterflow.png';
+import stageplotImg from '../assets/image/stageplot.jpg';
 
 
 function Projects() {
   const projects = [
+    {
+      "title": "ProducerDash",
+      "description": "A live production dashboard that follows your service order, syncs with ProPresenter timers and playlists, and shares a live rundown with volunteers and camera operators on any device.",
+      "key": "producerdash",
+      "imageSrc": producerdashImg,
+      "deployed_app": "https://producerdash.com/"
+    },
+    {
+      "title": "Stage Plot",
+      "description": "Part of ProducerDash. A visual stage layout builder that maps who stands where, what they play, and which mic channel they use. Build the stage once, set weekly assignments as your team rotates through it, and publish a live portal musicians and crew can open on any phone.",
+      "key": "stageplot",
+      "imageSrc": stageplotImg,
+      "deployed_app": "https://producerdash.com/"
+    },
+    {
+      "title": "PrompterFlow",
+      "description": "A MIDI teleprompter for live production, where an operator controls the script and scroll speed while talent reads a clean full screen prompter, synced to the show.",
+      "key": "prompterflow",
+      "imageSrc": prompterflowImg,
+      "deployed_app": "https://producerdash.com/apps/prompterflow"
+    },
     {
       "title": "My Kiss Anime",
       "description": "A MERN stack social media application with logins to showcaseyour favorite Animes",

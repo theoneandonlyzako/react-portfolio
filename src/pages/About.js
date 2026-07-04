@@ -54,7 +54,7 @@ function About() {
             I’ve mixed and worked with a diverse group of artists over the course 
             of my career including Praise One, Valley Worship, Country music artist Brandon Hamilton, 
             Filipino sensations IntroVoys, Christian artists MercyMe, for KING & COUNTRY, Tauren Wells, 
-            Rend Collective and Phil Wickham. I’ve also worked on and managed projects for corporate 
+            Rend Collective, Phil Wickham, Josiah James and Arron Hines. I’ve also worked on and managed projects for corporate 
             and broadcast clients including ESPN, and Stanford University.
           </p>
 
@@ -91,7 +91,7 @@ function About() {
             and a Berkeley bootcamp, where I earned my Full Stack Web Development certificate in 2021.
             It's a field I absolutely love, and I plan to keep growing through continued education in
             computer science and software development. Still, I can't leave music behind. I'm now the
-            Director of Technology at Northgate Christian Fellowship in Benicia, teamed up with some
+            Director of Technology at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
             amazing people on a mission to reach the unchurched.
           </p>
           <p className="p-text p-text-color">

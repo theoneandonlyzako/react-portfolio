@@ -2,8 +2,6 @@ import React from 'react';
 
 // import react-bootstrap components
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 // import custom components
 import ContactIcons from '../ContactIcons'
@@ -11,15 +9,9 @@ import ContactIcons from '../ContactIcons'
 function Footer() {
   return (
     <footer className="text-light bg-dark p-3 shadow footer">
-      <Container>
-        <Row>
-          <Col sm={12} md={6} className="m-md-0">
-            <p className="m-md-0 copyright">© {new Date().getFullYear()} Zak Stamps</p>
-          </Col>
-          <Col sm={12} md={6} className="d-flex justify-content-md-end justify-content-center">
-            <ContactIcons></ContactIcons>
-          </Col>
-        </Row>
+      <Container className="d-flex flex-wrap justify-content-between align-items-center">
+        <p className="m-0 copyright">© {new Date().getFullYear()} Zak Stamps</p>
+        <ContactIcons></ContactIcons>
       </Container>
     </footer>
   )
