@@ -7,24 +7,35 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+// Whole years elapsed since a start month/year, recomputed on every page view.
+function yearsSince(startYear, startMonth) {
+  const now = new Date();
+  let years = now.getFullYear() - startYear;
+  if (now.getMonth() < startMonth) years -= 1;
+  return years;
+}
+
 function About() {
+  const yearsImmersed = yearsSince(1996, 0); // audio, since January 1996
+  const yearsWorship = yearsSince(2008, 0);  // houses of worship, since January 2008
+
   return (
     <>
       <Jumbotron fluid className="mb-0">
         <Container>
           <Row>
-            <Col sm={12} md={6} lg={4} className="justify-content-center">
+            <Col sm={12} md={6} lg={4}>
               <Image
                 src={require("../assets/image/profilepic.png")}
                 roundedCircle
-                width="300vw"
-                height="300vw" />
+                width="300"
+                height="300" />
             </Col>
             <Col className="pl-md-5">
               <h1 className="display-4 text-center text-lg-left text-dark p-0-lg pt-4">
                 hello, world!</h1>
               <p className="text-dark text-center text-md-left h4">
-                I'm Zak Stamps, an audio engineer, Technical Director and full-stack web developer based in the San Francisco bay area.
+                I'm Zak Stamps, an Audio Engineer, Technical Production Director and Full Stack Web Developer based in the San Francisco bay area.
               </p>
             </Col>
           </Row>
@@ -34,10 +45,10 @@ function About() {
       <Container fluid className="shadow mb-5 bg-dark about-container">
         <Container className="p-5 bg-dark">
           <h3 class="p-text-color">About Me</h3>
-          <p class="p-text p-text-color">
+          <p className="p-text p-text-color">
             I have been immersed in the wide world of audio production for the
-            past 30 years spanning the worlds of live sound, broadcast audio,
-            post-production audio, and music production.</p>
+            past {yearsImmersed} years spanning the worlds of live sound, broadcast audio,
+            post production audio, and music production.</p>
 
           <p class="p-text p-text-color">
             I’ve mixed and worked with a diverse group of artists over the course 
@@ -47,10 +58,10 @@ function About() {
             and broadcast clients including ESPN, and Stanford University.
           </p>
 
-          <p class="p-text p-text-color">
-            I spent 11 years focused on audio in Houses of Worship and served as the Technical 
+          <p className="p-text p-text-color">
+            I spent {yearsWorship} years focused on audio in Houses of Worship and served as the Technical
             Director for a large church in the San Francisco bay area, <u><a href="https://www.newnorth.church/" target="_blank" rel="noopener noreferrer">New North Church</a></u> located in San Bruno, CA 
-            for 5 of those years. At New North, I oversaw all technical production-related needs for the Sunday 
+            for 5 of those years. At New North, I oversaw all technical production related needs for the Sunday
             morning experience including mixing, managing and training volunteers and staff. Over the course of 
             my time on staff, I supervised two major system upgrades/installations, upgraded FOH and monitor 
             consoles, redesigned the entire audio and video infrastructure, and optimized the production systems 
@@ -63,32 +74,29 @@ function About() {
             I also produced and maintained the New North Weekly podcasts and New North Kids weekly YouTube channels. 
           </p>
 
-          <p class="p-text p-text-color">
-            At this point I’ve spent most of my life devoted to the world of audio, delving into the church world, 
-            high-end festival and concert life as well as high production theatre. Not long after getting involved 
-            in the church industry, I was introduced to the live theatre industry and fell in love. Ever since I 
-            have had the pleasure of working on large productions such as; Annie, Godspell, How to Succeed in 
-            Business Without Really Trying, Footloose, the Lion King, Peter Pan, the Nutcracker, <u><a href="https://www.mercurynews.com/2017/01/25/powerful-cabaret-opens-hillbarn-theatre-season/" target="_blank" rel="noopener noreferrer">Cabaret</a></u>, <u><a href="https://www.mercurynews.com/2017/03/15/have-you-heard-the-latest-about-rumors-at-hillbarn/" target="_blank" rel="noopener noreferrer">Rumors</a></u>, 
-            Marry Poppins, The Producers, Music Man, Singing in the Rain, Million Dollar Quartet, Aida, <u><a href="http://www.aislesaysanfrancisco.com/2019/03/joseph-and-amazing-technicolor.html" target="_blank" rel="noopener noreferrer">Joseph and the Amazing Technicolor Dreamcoat</a></u>, <u><a href="https://morganhilllife.com/2018/08/22/curtain-up-theater-review-by-camille-bound-saturday-night-fever/" target="_blank" rel="noopener noreferrer">Saturday Night Fever</a></u>, 
+          <p className="p-text p-text-color">
+            I've spent most of my life devoted to audio, spanning the church world, high end festivals
+            and concerts, and high production theatre. I got my start in church work, then discovered
+            live theatre and fell in love. Since then I've had the pleasure of working on major
+            productions, including: Annie, Godspell, How to Succeed in Business Without Really Trying,
+            Footloose, The Lion King, Peter Pan, The Nutcracker, <u><a href="https://www.mercurynews.com/2017/01/25/powerful-cabaret-opens-hillbarn-theatre-season/" target="_blank" rel="noopener noreferrer">Cabaret</a></u>, <u><a href="https://www.mercurynews.com/2017/03/15/have-you-heard-the-latest-about-rumors-at-hillbarn/" target="_blank" rel="noopener noreferrer">Rumors</a></u>,
+            Mary Poppins, The Producers, Music Man, Singing in the Rain, Million Dollar Quartet, Aida, <u><a href="http://www.aislesaysanfrancisco.com/2019/03/joseph-and-amazing-technicolor.html" target="_blank" rel="noopener noreferrer">Joseph and the Amazing Technicolor Dreamcoat</a></u>, <u><a href="https://morganhilllife.com/2018/08/22/curtain-up-theater-review-by-camille-bound-saturday-night-fever/" target="_blank" rel="noopener noreferrer">Saturday Night Fever</a></u>,
             Smokey Joe's Cafe, and Next to Normal.
           </p>
 
-          <p class="p-text p-text-color">
-            I learned computer programming with DOS in the 1990's and started coding around the release of 
-            Myspace in 2003 with basic HTML hacks and python microchip programming in 2012.
-            As soon as I learned Javascript in 2021, there was no turning back.
-            As life evolved and technologies become more and more the norm,
-            I decided to get my feet wet in the world of web development and attended
-            Berkeley University bootcamp for coding.
-            I received my certificate in Full Stack Web Development in 2021
-            and absolutely Love the field. 
-            I plan to move forward with continued education in computer science and
-            software development as time progresses. However, I just cannot leave my love for music, I am now the Director of Technology at
-            Northgate Christian Fellowship in Benicia and have teamed up with some amazing people on a mission to reach the un-churched. 
+          <p className="p-text p-text-color">
+            I learned to program on DOS in the 1990s, started coding around the launch of Myspace in
+            2003 with basic HTML, and moved into Python microcontroller programming in 2012. Once I
+            picked up JavaScript in 2021, there was no turning back. That led me to web development
+            and a Berkeley bootcamp, where I earned my Full Stack Web Development certificate in 2021.
+            It's a field I absolutely love, and I plan to keep growing through continued education in
+            computer science and software development. Still, I can't leave music behind. I'm now the
+            Director of Technology at Northgate Christian Fellowship in Benicia, teamed up with some
+            amazing people on a mission to reach the unchurched.
           </p>
-          <p class="p-text p-text-color">
-            When I'm not in front of a screen, you might find me cooking, spending way too much time gardening,
-            or spending precious time with the family. Thanks for stopping by!
+          <p className="p-text p-text-color">
+            When I'm not in front of a screen, you'll find me cooking, gardening far too much, or
+            spending time with family. Thanks for stopping by!
           </p>
         </Container>
       </Container>

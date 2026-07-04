@@ -16,8 +16,8 @@ function humanize(file) {
   return file.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// Auto-import every image dumped into assets/image/Gigs — new files appear on reload.
-const ctx = require.context('../assets/image/Gigs', false, /\.(png|jpe?g|svg|webp)$/);
+// Auto-import every image dumped into assets/image/Gigs; new files appear on reload.
+const ctx = require.context('../assets/image/Gigs', false, /\.(png|jpe?g|svg|webp)$/i);
 const photos = ctx.keys()
   .map((key) => {
     const file = key.replace('./', '');

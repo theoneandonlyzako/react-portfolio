@@ -219,6 +219,15 @@ a:hover {
 /* ---------- Hero (About top) ---------- */
 .jumbotron .img-thumbnail,
 .rounded-circle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  box-sizing: border-box;
   border: 3px solid transparent;
   background:
     linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
@@ -229,6 +238,25 @@ a:hover {
 }
 .rounded-circle:hover {
   transform: translateY(-6px) scale(1.02);
+}
+
+/* Pulsating glow behind the hero photo (respects reduced-motion) */
+@keyframes heroGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 22px 55px -26px rgba(236, 72, 153, 0.4),
+                0 0 35px -8px rgba(139, 92, 246, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08),
+                0 26px 85px -18px rgba(236, 72, 153, 0.85),
+                0 0 75px -4px rgba(139, 92, 246, 0.55);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .jumbotron .rounded-circle {
+    animation: heroGlowPulse 3.4s ease-in-out infinite;
+  }
 }
 
 .jumbotron h1.display-4 {
