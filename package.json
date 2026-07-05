@@ -28,6 +28,7 @@
     "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "edit": "node tools/gallery-editor/server.js",
     "edit:gallery": "node tools/gallery-editor/server.js"
   },
   "eslintConfig": {

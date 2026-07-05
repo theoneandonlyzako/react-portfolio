@@ -3,22 +3,25 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gallery Caption Editor</title>
+<title>Site Content Editor</title>
 <style>
   :root { --bg:#0e0e14; --card:#1a1a24; --line:#2a2a38; --text:#ececf4; --muted:#a0a0b0; --accent:#8b5cf6; --accent2:#ec4899; }
   * { box-sizing: border-box; }
   body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); }
   header { position:sticky; top:0; z-index:10; background:rgba(14,14,20,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); padding:.9rem 1.25rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
   header h1 { font-size:1.1rem; margin:0; background:linear-gradient(120deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .tabs { display:flex; gap:.4rem; }
+  .tab { cursor:pointer; background:transparent; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:.4rem 1rem; font:inherit; }
+  .tab.active { color:#fff; border-color:transparent; background:linear-gradient(120deg,var(--accent),var(--accent2)); }
   header .count { color:var(--muted); font-size:.85rem; }
   input,textarea,select { font:inherit; color:var(--text); background:#12121a; border:1px solid var(--line); border-radius:8px; padding:.5rem .6rem; }
   input:focus,textarea:focus,select:focus { outline:none; border-color:var(--accent); }
-  header input[type=search], header select { min-width:180px; }
+  header input[type=search], header select#catfilter { min-width:170px; }
   .btn { cursor:pointer; border:none; border-radius:999px; padding:.55rem 1.3rem; font-weight:600; color:#fff; background:linear-gradient(120deg,var(--accent),var(--accent2)); }
-  .btn.secondary { background:transparent; border:1px solid var(--line); color:var(--text); font-weight:500; }
+  .btn.secondary { background:transparent; border:1px solid var(--line); color:var(--text); font-weight:500; padding:.45rem 1rem; }
+  .btn.mini { padding:.35rem .7rem; }
   .status { font-size:.85rem; color:var(--muted); min-width:120px; }
-  .status.saved { color:#4ade80; }
-  .status.dirty { color:var(--accent2); }
+  .status.saved { color:#4ade80; } .status.dirty { color:var(--accent2); }
   main { max-width:1100px; margin:0 auto; padding:1.25rem; }
   h2 { font-size:1rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin:2rem 0 .75rem; }
   .card { display:grid; grid-template-columns:200px 1fr; gap:1rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:1rem; }
@@ -26,170 +29,195 @@
   .card .fields { display:flex; flex-direction:column; gap:.55rem; min-width:0; }
   .card .file { font-size:.72rem; color:var(--muted); font-family:monospace; word-break:break-all; }
   .row { display:flex; gap:.55rem; }
-  .row .f-title { flex:1; }
-  .row .f-cat { width:190px; }
-  textarea.f-desc { resize:vertical; min-height:56px; width:100%; }
+  .row .f-title { flex:1; } .row .f-cat { width:190px; }
+  textarea.f-desc, textarea.p-desc { resize:vertical; min-height:56px; width:100%; }
   label { font-size:.72rem; color:var(--muted); display:block; margin-bottom:.15rem; }
-  .vcard { display:grid; grid-template-columns:1fr auto; gap:.6rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:.9rem; }
-  .vcard .vgrid { display:grid; grid-template-columns:1fr 1fr; gap:.55rem; }
+  .vcard, .pvcard { display:grid; grid-template-columns:1fr auto; gap:.6rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:.9rem; }
+  .vcard .vgrid, .pvcard .vgrid { display:grid; grid-template-columns:1fr 1fr; gap:.55rem; align-items:end; }
   .hint { color:var(--muted); font-size:.85rem; margin:.25rem 0 0; }
+  /* Projects */
+  .pcard { display:grid; grid-template-columns:220px 1fr; gap:1rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:1rem; }
+  .pcol { display:flex; flex-direction:column; gap:.5rem; }
+  .p-preview { width:220px; height:150px; object-fit:cover; border-radius:8px; background:#000; }
+  .p-image { width:100%; }
+  .prow-actions { display:flex; gap:.5rem; margin-top:.25rem; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Gallery Caption Editor</h1>
+  <h1>Site Content Editor</h1>
+  <div class="tabs"><button class="tab active" data-tab="gallery">Gallery</button><button class="tab" data-tab="projects">Projects</button></div>
   <span class="count" id="count"></span>
-  <input type="search" id="search" placeholder="Filter by name, title, or text" />
+  <input type="search" id="search" placeholder="Filter photos" />
   <select id="catfilter"><option value="">All categories</option></select>
   <div style="flex:1"></div>
   <span class="status" id="status"></span>
   <button class="btn" id="save">Save</button>
 </header>
 <main>
-  <p class="hint">Edit any field, then click Save. Changes write to <code>src/data/galleryData.json</code>. Deploy afterward to publish.</p>
-  <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0 .75rem;">
-    <h2 style="margin:0;">Photos (<span id="pcount">0</span>)</h2>
-    <button class="btn secondary" id="addphotosbtn">+ Add photos</button>
-    <input type="file" id="addphotos" accept="image/*" multiple style="display:none" />
+  <p class="hint">Edit any field, then click Save. Changes write to the data files (gallery + projects). Deploy afterward to publish.</p>
+
+  <div id="gallery-view">
+    <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0 .75rem;">
+      <h2 style="margin:0;">Photos (<span id="pcount">0</span>)</h2>
+      <button class="btn secondary" id="addphotosbtn">+ Add photos</button>
+      <input type="file" id="addphotos" accept="image/*" multiple style="display:none" />
+    </div>
+    <div id="photos"></div>
+    <h2>Gallery Videos</h2>
+    <div id="videos"></div>
+    <button class="btn secondary" id="addvideo">+ Add video</button>
   </div>
-  <div id="photos"></div>
-  <h2>Videos</h2>
-  <div id="videos"></div>
-  <button class="btn secondary" id="addvideo">+ Add video</button>
+
+  <div id="projects-view" style="display:none">
+    <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0 .75rem;">
+      <h2 style="margin:0;">Projects (<span id="projcount">0</span>)</h2>
+      <button class="btn secondary" id="addproject">+ Add project</button>
+    </div>
+    <div id="projectlist"></div>
+    <h2>Projects Page Videos</h2>
+    <div id="projectvideos"></div>
+    <button class="btn secondary" id="addprojvideo">+ Add video</button>
+  </div>
 </main>
 <datalist id="cats"></datalist>
+<input type="file" id="projectfile" accept="image/*" style="display:none" />
 
 <script>
-let DATA = { photoMeta:{}, videos:[], categoryOrder:[] };
-let IMAGES = [];
-const $ = (s,el=document)=>el.querySelector(s);
-
-function allCategories(){
-  const set = new Set(DATA.categoryOrder);
-  Object.values(DATA.photoMeta).forEach(m=>m.category && set.add(m.category));
-  DATA.videos.forEach(v=>v.category && set.add(v.category));
-  return [...set];
-}
-
+let DATA={photoMeta:{},videos:[],categoryOrder:[]}, IMAGES=[];
+let PDATA={projects:[],videos:[]}, PIMAGES=[];
+let uploadTargetCard=null;
+const $=(s,el=document)=>el.querySelector(s);
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function setStatus(m,c){ const s=$('#status'); s.textContent=m; s.className='status '+(c||''); }
 
+/* ---------- Gallery ---------- */
+function allCategories(){ const set=new Set(DATA.categoryOrder); Object.values(DATA.photoMeta).forEach(m=>m.category&&set.add(m.category)); DATA.videos.forEach(v=>v.category&&set.add(v.category)); return [...set]; }
 function renderPhotos(){
-  const cats = allCategories();
-  $('#cats').innerHTML = cats.map(c=>`<option value="${esc(c)}">`).join('');
-  $('#catfilter').innerHTML = '<option value="">All categories</option>' + cats.map(c=>`<option>${esc(c)}</option>`).join('');
-  $('#pcount').textContent = IMAGES.length;
-  $('#photos').innerHTML = IMAGES.map(file=>{
-    const m = DATA.photoMeta[file] || {};
-    return `<div class="card" data-file="${esc(file)}">
-      <img loading="lazy" src="/images/${encodeURIComponent(file)}" alt="">
-      <div class="fields">
-        <div class="file">${esc(file)}</div>
-        <div class="row">
-          <div style="flex:1"><label>Title</label><input class="f-title" value="${esc(m.title)}" placeholder="(blank shows no title)"></div>
-          <div><label>Category</label><input class="f-cat" list="cats" value="${esc(m.category)}" placeholder="Uncategorized"></div>
-        </div>
-        <div><label>Description</label><textarea class="f-desc" placeholder="Your story for this photo...">${esc(m.description)}</textarea></div>
-      </div>
-    </div>`;
-  }).join('');
+  const cats=allCategories();
+  $('#cats').innerHTML=cats.map(c=>`<option value="${esc(c)}">`).join('');
+  $('#catfilter').innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${esc(c)}</option>`).join('');
+  $('#pcount').textContent=IMAGES.length;
+  $('#photos').innerHTML=IMAGES.map(file=>{ const m=DATA.photoMeta[file]||{}; return `<div class="card" data-file="${esc(file)}">
+    <img loading="lazy" src="/images/${encodeURIComponent(file)}" alt="">
+    <div class="fields"><div class="file">${esc(file)}</div>
+      <div class="row"><div style="flex:1"><label>Title</label><input class="f-title" value="${esc(m.title)}" placeholder="(blank shows no title)"></div>
+      <div><label>Category</label><input class="f-cat" list="cats" value="${esc(m.category)}" placeholder="Uncategorized"></div></div>
+      <div><label>Description</label><textarea class="f-desc" placeholder="Your story for this photo...">${esc(m.description)}</textarea></div>
+    </div></div>`; }).join('');
 }
-
-function videoCard(v){
-  return `<div class="vcard">
-    <div class="vgrid">
-      <div><label>YouTube ID</label><input class="v-id" value="${esc(v.youtubeId)}" placeholder="dQw4w9WgXcQ"></div>
-      <div><label>Category</label><input class="v-cat" list="cats" value="${esc(v.category)}"></div>
-      <div><label>Title</label><input class="v-title" value="${esc(v.title)}"></div>
-      <div><label>Description</label><input class="v-desc" value="${esc(v.description)}"></div>
-    </div>
-    <div style="display:flex;align-items:center"><button class="btn secondary v-remove">Remove</button></div>
-  </div>`;
-}
-function renderVideos(){ $('#videos').innerHTML = DATA.videos.map(videoCard).join(''); }
-
+function videoCard(v){ return `<div class="vcard"><div class="vgrid">
+  <div><label>YouTube ID</label><input class="v-id" value="${esc(v.youtubeId)}" placeholder="dQw4w9WgXcQ"></div>
+  <div><label>Category</label><input class="v-cat" list="cats" value="${esc(v.category)}"></div>
+  <div><label>Title</label><input class="v-title" value="${esc(v.title)}"></div>
+  <div><label>Description</label><input class="v-desc" value="${esc(v.description)}"></div>
+</div><div style="display:flex;align-items:center"><button class="btn secondary v-remove">Remove</button></div></div>`; }
+function renderVideos(){ $('#videos').innerHTML=DATA.videos.map(videoCard).join(''); }
 function gather(){
-  const photoMeta = {};
-  document.querySelectorAll('.card').forEach(c=>{
-    photoMeta[c.dataset.file] = {
-      title: $('.f-title',c).value.trim(),
-      description: $('.f-desc',c).value.trim(),
-      category: $('.f-cat',c).value.trim() || 'Uncategorized',
-    };
-  });
-  const videos = [];
-  document.querySelectorAll('.vcard').forEach(c=>{
-    const id = $('.v-id',c).value.trim();
-    if(!id) return;
-    videos.push({ youtubeId:id, title:$('.v-title',c).value.trim(), description:$('.v-desc',c).value.trim(), category:$('.v-cat',c).value.trim()||'Uncategorized' });
-  });
-  return { photoMeta, videos, categoryOrder: DATA.categoryOrder };
+  const photoMeta={}; document.querySelectorAll('#gallery-view .card').forEach(c=>{ photoMeta[c.dataset.file]={ title:$('.f-title',c).value.trim(), description:$('.f-desc',c).value.trim(), category:$('.f-cat',c).value.trim()||'Uncategorized' }; });
+  const videos=[]; document.querySelectorAll('#gallery-view .vcard').forEach(c=>{ const id=$('.v-id',c).value.trim(); if(!id) return; videos.push({ youtubeId:id, title:$('.v-title',c).value.trim(), description:$('.v-desc',c).value.trim(), category:$('.v-cat',c).value.trim()||'Uncategorized' }); });
+  return { photoMeta, videos, categoryOrder:DATA.categoryOrder };
 }
 
-function setStatus(msg,cls){ const s=$('#status'); s.textContent=msg; s.className='status '+(cls||''); }
+/* ---------- Projects ---------- */
+function imageOptions(sel){ return PIMAGES.map(f=>`<option value="${esc(f)}"${f===sel?' selected':''}>${esc(f)}</option>`).join(''); }
+function projectCard(p){ const img=p.image||PIMAGES[0]||''; return `<div class="pcard" data-key="${esc(p.key||('proj-'+Math.random().toString(36).slice(2)))}">
+  <div class="pcol">
+    <img class="p-preview" src="/project-images/${encodeURIComponent(img)}" alt="">
+    <select class="p-image">${imageOptions(img)}</select>
+    <button class="btn secondary mini p-upload">Upload image</button>
+  </div>
+  <div class="fields">
+    <div><label>Title</label><input class="p-title" value="${esc(p.title)}"></div>
+    <div><label>Description</label><textarea class="p-desc">${esc(p.description)}</textarea></div>
+    <div class="row"><div style="flex:1"><label>Live URL</label><input class="p-url" value="${esc(p.deployed_app)}" placeholder="https://..."></div>
+      <div style="flex:1"><label>Repo URL (optional, shows GitHub icon)</label><input class="p-repo" value="${esc(p.repository)}" placeholder="(leave blank for none)"></div></div>
+    <div class="prow-actions"><button class="btn secondary mini p-up">Move up</button><button class="btn secondary mini p-down">Move down</button><button class="btn secondary mini p-remove">Remove</button></div>
+  </div></div>`; }
+function projVideoCard(v){ return `<div class="pvcard"><div class="vgrid">
+  <div><label>Title</label><input class="pv-title" value="${esc(v.title)}"></div>
+  <div><label>YouTube ID</label><input class="pv-id" value="${esc(v.youtubeId)}"></div>
+</div><div style="display:flex;align-items:center"><button class="btn secondary pv-remove">Remove</button></div></div>`; }
+function renderProjects(){ $('#projcount').textContent=PDATA.projects.length; $('#projectlist').innerHTML=PDATA.projects.map(projectCard).join(''); $('#projectvideos').innerHTML=PDATA.videos.map(projVideoCard).join(''); }
+function gatherProjects(){
+  const projects=[]; document.querySelectorAll('.pcard').forEach(c=>{ const proj={ title:$('.p-title',c).value.trim(), description:$('.p-desc',c).value.trim(), key:c.dataset.key, image:$('.p-image',c).value, deployed_app:$('.p-url',c).value.trim() }; const repo=$('.p-repo',c).value.trim(); if(repo) proj.repository=repo; projects.push(proj); });
+  const videos=[]; document.querySelectorAll('.pvcard').forEach(c=>{ const id=$('.pv-id',c).value.trim(); if(!id) return; videos.push({ title:$('.pv-title',c).value.trim(), youtubeId:id }); });
+  return { projects, videos };
+}
 
+/* ---------- Save ---------- */
 async function save(){
   setStatus('Saving...','');
-  const payload = gather();
-  const r = await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-  const j = await r.json();
-  if(j.ok){ DATA = payload; renderPhotos(); renderVideos(); setStatus('Saved. Deploy to publish.','saved'); }
-  else setStatus('Error: '+j.error,'dirty');
+  const g=gather(), pj=gatherProjects();
+  try{
+    let r=await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(g)}); let j=await r.json(); if(!j.ok) throw new Error('Gallery: '+j.error);
+    r=await fetch('/api/projects/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(pj)}); j=await r.json(); if(!j.ok) throw new Error('Projects: '+j.error);
+    DATA=g; PDATA=pj; setStatus('Saved. Deploy to publish.','saved');
+  }catch(e){ setStatus('Error: '+e.message,'dirty'); }
 }
 
-function applyFilter(){
-  const q = $('#search').value.toLowerCase();
-  const cat = $('#catfilter').value;
-  let shown=0;
-  document.querySelectorAll('.card').forEach(c=>{
-    const file=c.dataset.file.toLowerCase();
-    const title=$('.f-title',c).value.toLowerCase();
-    const desc=$('.f-desc',c).value.toLowerCase();
-    const cval=$('.f-cat',c).value;
-    const matchQ = !q || file.includes(q) || title.includes(q) || desc.includes(q);
-    const matchCat = !cat || cval===cat;
-    const vis = matchQ && matchCat;
-    c.style.display = vis?'':'none';
-    if(vis) shown++;
-  });
-  $('#count').textContent = shown + ' shown';
-}
+/* ---------- Filter (gallery) ---------- */
+function applyFilter(){ const q=$('#search').value.toLowerCase(), cat=$('#catfilter').value; let shown=0;
+  document.querySelectorAll('#gallery-view .card').forEach(c=>{ const file=c.dataset.file.toLowerCase(), title=$('.f-title',c).value.toLowerCase(), desc=$('.f-desc',c).value.toLowerCase(), cval=$('.f-cat',c).value;
+    const vis=(!q||file.includes(q)||title.includes(q)||desc.includes(q))&&(!cat||cval===cat); c.style.display=vis?'':'none'; if(vis)shown++; });
+  $('#count').textContent=shown+' shown'; }
 
-document.addEventListener('input',(e)=>{ if(e.target.closest('.card')||e.target.closest('.vcard')) setStatus('Unsaved changes','dirty'); });
+/* ---------- Tabs ---------- */
+function setTab(tab){ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
+  $('#gallery-view').style.display=tab==='gallery'?'':'none'; $('#projects-view').style.display=tab==='projects'?'':'none';
+  $('#search').style.display=tab==='gallery'?'':'none'; $('#catfilter').style.display=tab==='gallery'?'':'none';
+  $('#count').textContent = tab==='gallery' ? IMAGES.length+' photos' : PDATA.projects.length+' projects'; }
+
+/* ---------- Events ---------- */
+document.addEventListener('input',(e)=>{ if(e.target.closest('.card')||e.target.closest('.vcard')||e.target.closest('.pcard')||e.target.closest('.pvcard')) setStatus('Unsaved changes','dirty'); });
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setTab(t.dataset.tab)));
 $('#search').addEventListener('input',applyFilter);
 $('#catfilter').addEventListener('change',applyFilter);
 $('#save').addEventListener('click',save);
-$('#addvideo').addEventListener('click',()=>{ DATA.videos = gather().videos.concat({youtubeId:'',title:'',description:'',category:'Uncategorized'}); renderVideos(); setStatus('Unsaved changes','dirty'); });
-document.addEventListener('click',(e)=>{ if(e.target.classList.contains('v-remove')){ const cards=[...document.querySelectorAll('.vcard')]; const i=cards.indexOf(e.target.closest('.vcard')); DATA.videos=gather().videos; DATA.videos.splice(i,1); renderVideos(); setStatus('Unsaved changes','dirty'); } });
-window.addEventListener('beforeunload',(e)=>{ if($('#status').classList.contains('dirty')){ e.preventDefault(); e.returnValue=''; } });
+$('#addvideo').addEventListener('click',()=>{ DATA=gather(); DATA.videos.push({youtubeId:'',title:'',description:'',category:'Uncategorized'}); renderVideos(); setStatus('Unsaved changes','dirty'); });
+$('#addprojvideo').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.videos.push({title:'',youtubeId:''}); renderProjects(); setStatus('Unsaved changes','dirty'); });
+$('#addproject').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.projects.unshift({ title:'', description:'', key:'proj-'+Date.now(), image:PIMAGES[0]||'', deployed_app:'' }); renderProjects(); const c=document.querySelector('.pcard'); if(c){ c.scrollIntoView({block:'center'}); const ti=$('.p-title',c); if(ti) ti.focus(); } setStatus('Unsaved changes','dirty'); });
 
-async function uploadFiles(files){
-  for(const f of files){
-    setStatus('Uploading '+f.name+' ...','');
-    try{
-      const buf = await f.arrayBuffer();
-      const r = await fetch('/api/upload?name='+encodeURIComponent(f.name),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:buf});
-      const j = await r.json();
-      if(!j.ok){ setStatus('Upload failed: '+j.error,'dirty'); continue; }
-      // keep any unsaved edits, then add the new photo at the top
-      const cur = gather();
-      DATA.photoMeta = cur.photoMeta;
-      DATA.videos = cur.videos;
-      IMAGES.unshift(j.file);
-      renderPhotos(); renderVideos(); applyFilter();
-      const card = document.querySelector('.card');
-      if(card){ card.scrollIntoView({block:'center'}); card.style.outline='2px solid var(--accent2)'; setTimeout(()=>{card.style.outline='';},1500); const ti=$('.f-title',card); if(ti) ti.focus(); }
-      setStatus('Added '+j.file+'. Caption it and Save.','dirty');
-    }catch(e){ setStatus('Upload error: '+e.message,'dirty'); }
-  }
-}
+document.addEventListener('click',(e)=>{
+  const t=e.target;
+  if(t.classList.contains('v-remove')){ const cards=[...document.querySelectorAll('#gallery-view .vcard')]; const i=cards.indexOf(t.closest('.vcard')); DATA=gather(); DATA.videos.splice(i,1); renderVideos(); setStatus('Unsaved changes','dirty'); }
+  if(t.classList.contains('pv-remove')){ const cards=[...document.querySelectorAll('.pvcard')]; const i=cards.indexOf(t.closest('.pvcard')); PDATA=gatherProjects(); PDATA.videos.splice(i,1); renderProjects(); setStatus('Unsaved changes','dirty'); }
+  if(t.classList.contains('p-remove')){ const card=t.closest('.pcard'); if(confirm('Remove this project?')){ card.remove(); setStatus('Unsaved changes','dirty'); $('#projcount').textContent=document.querySelectorAll('.pcard').length; } }
+  if(t.classList.contains('p-up')){ const card=t.closest('.pcard'); const prev=card.previousElementSibling; if(prev) card.parentNode.insertBefore(card,prev); setStatus('Unsaved changes','dirty'); }
+  if(t.classList.contains('p-down')){ const card=t.closest('.pcard'); const next=card.nextElementSibling; if(next) card.parentNode.insertBefore(next,card); setStatus('Unsaved changes','dirty'); }
+  if(t.classList.contains('p-upload')){ uploadTargetCard=t.closest('.pcard'); $('#projectfile').click(); }
+});
+document.addEventListener('change',(e)=>{ if(e.target.classList.contains('p-image')){ const card=e.target.closest('.pcard'); $('.p-preview',card).src='/project-images/'+encodeURIComponent(e.target.value); setStatus('Unsaved changes','dirty'); } });
+
+$('#projectfile').addEventListener('change',async(e)=>{ const f=e.target.files[0]; e.target.value=''; if(!f||!uploadTargetCard) return;
+  setStatus('Uploading '+f.name+' ...','');
+  try{ const buf=await f.arrayBuffer(); const r=await fetch('/api/project-upload?name='+encodeURIComponent(f.name),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:buf}); const j=await r.json();
+    if(!j.ok){ setStatus('Upload failed: '+j.error,'dirty'); return; }
+    if(!PIMAGES.includes(j.file)) PIMAGES.push(j.file);
+    document.querySelectorAll('.p-image').forEach(sel=>{ if(![...sel.options].some(o=>o.value===j.file)){ const o=document.createElement('option'); o.value=j.file; o.textContent=j.file; sel.appendChild(o); } });
+    const sel=$('.p-image',uploadTargetCard); sel.value=j.file; $('.p-preview',uploadTargetCard).src='/project-images/'+encodeURIComponent(j.file);
+    setStatus('Added image '+j.file+'. Save to keep it.','dirty');
+  }catch(err){ setStatus('Upload error: '+err.message,'dirty'); }
+});
+
+async function uploadFiles(files){ for(const f of files){ setStatus('Uploading '+f.name+' ...','');
+  try{ const buf=await f.arrayBuffer(); const r=await fetch('/api/upload?name='+encodeURIComponent(f.name),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:buf}); const j=await r.json();
+    if(!j.ok){ setStatus('Upload failed: '+j.error,'dirty'); continue; }
+    const cur=gather(); DATA.photoMeta=cur.photoMeta; DATA.videos=cur.videos; IMAGES.unshift(j.file); renderPhotos(); renderVideos(); applyFilter();
+    const card=document.querySelector('#gallery-view .card'); if(card){ card.scrollIntoView({block:'center'}); card.style.outline='2px solid var(--accent2)'; setTimeout(()=>{card.style.outline='';},1500); const ti=$('.f-title',card); if(ti) ti.focus(); }
+    setStatus('Added '+j.file+'. Caption it and Save.','dirty');
+  }catch(e){ setStatus('Upload error: '+e.message,'dirty'); } } }
 $('#addphotosbtn').addEventListener('click',()=>$('#addphotos').click());
 $('#addphotos').addEventListener('change',(e)=>{ const fs=[...e.target.files]; e.target.value=''; uploadFiles(fs); });
+window.addEventListener('beforeunload',(e)=>{ if($('#status').classList.contains('dirty')){ e.preventDefault(); e.returnValue=''; } });
 
 (async function init(){
-  DATA = await (await fetch('/api/data')).json();
-  IMAGES = await (await fetch('/api/images')).json();
-  renderPhotos(); renderVideos(); applyFilter();
-  $('#count').textContent = IMAGES.length + ' photos';
+  DATA=await (await fetch('/api/data')).json();
+  IMAGES=await (await fetch('/api/images')).json();
+  PDATA=await (await fetch('/api/projects')).json();
+  PIMAGES=await (await fetch('/api/project-images')).json();
+  renderPhotos(); renderVideos(); renderProjects(); applyFilter();
+  setTab('gallery');
 })();
 </script>
 </body>

@@ -1,0 +1,103 @@
+{
+  "projects": [
+    {
+      "title": "ProducerDash",
+      "description": "A live production dashboard that follows your service order, syncs with ProPresenter timers and playlists, and shares a live rundown with volunteers and camera operators on any device.",
+      "key": "producerdash",
+      "image": "producerdash.png",
+      "deployed_app": "https://producerdash.com/"
+    },
+    {
+      "title": "Stage Plot",
+      "description": "Part of ProducerDash. A visual stage layout builder that maps who stands where, what they play, and which mic channel they use. Build the stage once, set weekly assignments as your team rotates through it, and publish a live portal musicians and crew can open on any phone.",
+      "key": "stageplot",
+      "image": "stageplot.jpg",
+      "deployed_app": "https://producerdash.com/"
+    },
+    {
+      "title": "PrompterFlow",
+      "description": "A MIDI teleprompter for live production, where an operator controls the script and scroll speed while talent reads a clean full screen prompter, synced to the show.",
+      "key": "prompterflow",
+      "image": "prompterflow.png",
+      "deployed_app": "https://producerdash.com/apps/prompterflow"
+    },
+    {
+      "title": "My Kiss Anime",
+      "description": "A MERN stack social media application with logins to showcase your favorite Animes",
+      "key": "kiss",
+      "image": "site-kiss.png",
+      "deployed_app": "https://my-kiss-anime.herokuapp.com/",
+      "repository": "https://github.com/theoneandonlyzako/kiss-anime"
+    },
+    {
+      "title": "The Pursuit of Hoppiness",
+      "description": "An app for discovering local breweries in your area",
+      "key": "hoppiness",
+      "image": "pursuit.png",
+      "deployed_app": "https://theoneandonlyzako.github.io/the-pursuit-of-hoppiness/",
+      "repository": "https://github.com/theoneandonlyzako/the-pursuit-of-hoppiness"
+    },
+    {
+      "title": "Password Generator",
+      "description": "A simple app for generating passwords",
+      "key": "generate",
+      "image": "generator.png",
+      "deployed_app": "https://theoneandonlyzako.github.io/passwordGenerator/",
+      "repository": "https://github.com/theoneandonlyzako/passwordGenerator"
+    },
+    {
+      "title": "Note Keeper",
+      "description": "A JS app for creating and keeping notes",
+      "key": "note",
+      "image": "notes.png",
+      "deployed_app": "https://keeper-of-notes.herokuapp.com/",
+      "repository": "https://github.com/theoneandonlyzako/keeper-of-notes"
+    },
+    {
+      "title": "Budget Tracker",
+      "description": "A basic PWA for tracking a budget",
+      "key": "budget-tracker",
+      "image": "budget_tracker.png",
+      "deployed_app": "https://zaks-budget-tracker.herokuapp.com/",
+      "repository": "https://github.com/theoneandonlyzako/budget-tracker"
+    },
+    {
+      "title": "Weather App",
+      "description": "A frontend vanilla JS app for checking the weather",
+      "key": "weather-dashboard",
+      "image": "weather_dashboard.png",
+      "deployed_app": "https://theoneandonlyzako.github.io/Weather-app/",
+      "repository": "https://github.com/theoneandonlyzako/Weather-app"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Theatre",
+      "youtubeId": "-Db0ye5toZc"
+    },
+    {
+      "title": "Producer",
+      "youtubeId": "5x4wvG-n1Kk"
+    },
+    {
+      "title": "Live Mix for NNC",
+      "youtubeId": "usj7oG3tWSc"
+    },
+    {
+      "title": "Live Mix for NGCF",
+      "youtubeId": "jD9Uk5NgijE"
+    },
+    {
+      "title": "Post Mix",
+      "youtubeId": "rGP7KTZNdzg"
+    },
+    {
+      "title": "NNC Elementary",
+      "youtubeId": "L5UC5BH2fTs"
+    },
+    {
+      "title": "NNC Preschool",
+      "youtubeId": "sD0-weCDLVY"
+    }
+  ]
+}

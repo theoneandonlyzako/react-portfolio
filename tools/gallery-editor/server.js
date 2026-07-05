@@ -17,7 +17,9 @@ const { exec, execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..', '..');
 const DATA = path.join(ROOT, 'src', 'data', 'galleryData.json');
+const PROJECTS = path.join(ROOT, 'src', 'data', 'projects.json');
 const GIGS = path.join(ROOT, 'src', 'assets', 'image', 'Gigs');
+const ASSETS = path.join(ROOT, 'src', 'assets', 'image');
 const ORIGINALS = path.join(os.homedir(), 'Documents', 'CODING_PROJECTS', 'zakstamps-gallery-originals', 'photos-fullres');
 const PORT = 4400;
 
@@ -73,6 +75,68 @@ const server = http.createServer((req, res) => {
         return send(res, 200, 'application/json', JSON.stringify({ ok: true }));
       } catch (e) {
         return send(res, 400, 'application/json', JSON.stringify({ ok: false, error: String(e && e.message || e) }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'GET' && p === '/api/projects') {
+    return send(res, 200, 'application/json', fs.readFileSync(PROJECTS));
+  }
+
+  if (req.method === 'GET' && p === '/api/project-images') {
+    const files = fs.readdirSync(ASSETS)
+      .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+      .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+    return send(res, 200, 'application/json', JSON.stringify(files));
+  }
+
+  if (req.method === 'GET' && p.startsWith('/project-images/')) {
+    const file = decodeURIComponent(p.slice('/project-images/'.length));
+    const fp = path.join(ASSETS, file);
+    if (!fp.startsWith(ASSETS) || !fs.existsSync(fp) || fs.statSync(fp).isDirectory()) return send(res, 404, 'text/plain', 'not found');
+    res.writeHead(200, { 'Content-Type': MIME[path.extname(fp).toLowerCase()] || 'application/octet-stream' });
+    return fs.createReadStream(fp).pipe(res);
+  }
+
+  if (req.method === 'POST' && p === '/api/projects/save') {
+    let body = '';
+    req.on('data', (c) => { body += c; });
+    req.on('end', () => {
+      try {
+        const data = JSON.parse(body);
+        if (!data || !Array.isArray(data.projects) || !Array.isArray(data.videos)) throw new Error('Unexpected data shape');
+        fs.copyFileSync(PROJECTS, PROJECTS + '.bak');
+        fs.writeFileSync(PROJECTS, JSON.stringify(data, null, 2));
+        return send(res, 200, 'application/json', JSON.stringify({ ok: true }));
+      } catch (e) {
+        return send(res, 400, 'application/json', JSON.stringify({ ok: false, error: String((e && e.message) || e) }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'POST' && p === '/api/project-upload') {
+    const rawName = url.searchParams.get('name') || 'project';
+    const chunks = [];
+    req.on('data', (c) => chunks.push(c));
+    req.on('end', () => {
+      try {
+        const buf = Buffer.concat(chunks);
+        if (!buf.length) throw new Error('empty upload');
+        const safe = path.basename(rawName).replace(/[^a-zA-Z0-9._-]+/g, '_');
+        let base = safe.replace(/\.[^.]+$/, '') || 'project';
+        let out = base + '.jpg';
+        let i = 1;
+        while (fs.existsSync(path.join(ASSETS, out))) out = base + '-' + (i++) + '.jpg';
+        const tmp = path.join(os.tmpdir(), 'gedit_proj_' + Date.now() + '_' + safe);
+        fs.writeFileSync(tmp, buf);
+        execFileSync('sips', ['-Z', '1200', '-s', 'format', 'jpeg', '-s', 'formatOptions', '80', tmp, '--out', path.join(ASSETS, out)], { stdio: 'ignore' });
+        try { fs.unlinkSync(tmp); } catch (e) {}
+        if (!fs.existsSync(path.join(ASSETS, out))) throw new Error('could not process image');
+        return send(res, 200, 'application/json', JSON.stringify({ ok: true, file: out }));
+      } catch (e) {
+        return send(res, 400, 'application/json', JSON.stringify({ ok: false, error: String((e && e.message) || e) }));
       }
     });
     return;
