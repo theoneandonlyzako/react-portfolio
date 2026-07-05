@@ -186,10 +186,24 @@ const server = http.createServer((req, res) => {
   send(res, 404, 'text/plain', 'not found');
 });
 
+// If a copy is already running (port in use), don't crash with a cryptic
+// error — just open the editor that's already up.
+server.on('error', (err) => {
+  const u = 'http://localhost:' + PORT;
+  if (err && err.code === 'EADDRINUSE') {
+    console.log('\n  The editor is already running at ' + u + ' — opening it now.');
+    console.log('  (If it seems stuck, run `npm run edit:stop` first, then `npm run edit` again.)\n');
+    exec('open "' + u + '"');
+    process.exit(0);
+  }
+  throw err;
+});
+
 // Bind to 127.0.0.1 so ONLY this Mac can reach it (not other devices on the network).
 server.listen(PORT, '127.0.0.1', () => {
   const u = 'http://localhost:' + PORT;
-  console.log('\n  Gallery caption editor running at ' + u);
-  console.log('  Edit captions, click Save, then run `npm run deploy` to publish.\n  Press Ctrl+C to stop.\n');
+  console.log('\n  Site content editor running at ' + u);
+  console.log('  Edit, then click Save (local) or Publish (goes live).');
+  console.log('  Leave this terminal open while you work. Press Ctrl+C to stop.\n');
   exec('open "' + u + '"');
 });

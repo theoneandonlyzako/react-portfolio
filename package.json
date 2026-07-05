@@ -29,7 +29,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "edit": "node tools/gallery-editor/server.js",
-    "edit:gallery": "node tools/gallery-editor/server.js"
+    "edit:gallery": "node tools/gallery-editor/server.js",
+    "edit:stop": "pkill -f tools/gallery-editor/server.js || true"
   },
   "eslintConfig": {
     "extends": "react-app"
