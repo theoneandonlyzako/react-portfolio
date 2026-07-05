@@ -52,10 +52,11 @@
   <select id="catfilter"><option value="">All categories</option></select>
   <div style="flex:1"></div>
   <span class="status" id="status"></span>
+  <button class="btn secondary" id="publish">Publish</button>
   <button class="btn" id="save">Save</button>
 </header>
 <main>
-  <p class="hint">Edit any field, then click Save. Changes write to the data files (gallery + projects). Deploy afterward to publish.</p>
+  <p class="hint"><b>Save</b> writes your edits to the files on this Mac (fast, for iterating). <b>Publish</b> saves and then builds and pushes the site live to zakstamps.com (about a minute). This tool only works while it is running in your terminal.</p>
 
   <div id="gallery-view">
     <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0 .75rem;">
@@ -152,8 +153,26 @@ async function save(){
   try{
     let r=await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(g)}); let j=await r.json(); if(!j.ok) throw new Error('Gallery: '+j.error);
     r=await fetch('/api/projects/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(pj)}); j=await r.json(); if(!j.ok) throw new Error('Projects: '+j.error);
-    DATA=g; PDATA=pj; setStatus('Saved. Deploy to publish.','saved');
-  }catch(e){ setStatus('Error: '+e.message,'dirty'); }
+    DATA=g; PDATA=pj; setStatus('Saved locally. Click Publish to go live.','saved'); return true;
+  }catch(e){
+    const msg = /fetch/i.test(e.message) ? 'Could not reach the editor. Is it still running in your terminal (npm run edit)?' : e.message;
+    setStatus('Save failed: '+msg,'dirty'); return false;
+  }
+}
+async function publish(){
+  if(!confirm('Save your changes and publish them live to zakstamps.com?\n\nThis builds and pushes the site and takes about a minute.')) return;
+  const ok = await save();
+  if(ok===false) return;
+  setStatus('Publishing to zakstamps.com... about a minute, keep this tab and your terminal open.','');
+  try{
+    const r=await fetch('/api/publish',{method:'POST'});
+    const j=await r.json();
+    if(j.ok) setStatus('Published! It is live on zakstamps.com (hard refresh to see it).','saved');
+    else setStatus('Publish failed: '+j.error,'dirty');
+  }catch(e){
+    const msg = /fetch/i.test(e.message) ? 'Lost connection during publish (is the terminal still running?). It may still be finishing.' : e.message;
+    setStatus('Publish error: '+msg,'dirty');
+  }
 }
 
 /* ---------- Filter (gallery) ---------- */
@@ -174,6 +193,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setT
 $('#search').addEventListener('input',applyFilter);
 $('#catfilter').addEventListener('change',applyFilter);
 $('#save').addEventListener('click',save);
+$('#publish').addEventListener('click',publish);
 $('#addvideo').addEventListener('click',()=>{ DATA=gather(); DATA.videos.push({youtubeId:'',title:'',description:'',category:'Uncategorized'}); renderVideos(); setStatus('Unsaved changes','dirty'); });
 $('#addprojvideo').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.videos.push({title:'',youtubeId:''}); renderProjects(); setStatus('Unsaved changes','dirty'); });
 $('#addproject').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.projects.unshift({ title:'', description:'', key:'proj-'+Date.now(), image:PIMAGES[0]||'', deployed_app:'' }); renderProjects(); const c=document.querySelector('.pcard'); if(c){ c.scrollIntoView({block:'center'}); const ti=$('.p-title',c); if(ti) ti.focus(); } setStatus('Unsaved changes','dirty'); });

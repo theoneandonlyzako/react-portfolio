@@ -173,6 +173,16 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (req.method === 'POST' && p === '/api/publish') {
+    // Build + push to gh-pages (goes live) and commit the source to main.
+    const cmd = 'npm run deploy && git add -A && (git diff --cached --quiet || git commit -m "Update site content via editor") && git push origin main';
+    exec(cmd, { cwd: ROOT, maxBuffer: 1024 * 1024 * 64 }, (err, stdout, stderr) => {
+      if (err) return send(res, 500, 'application/json', JSON.stringify({ ok: false, error: String(stderr || stdout || err.message).slice(-800) }));
+      return send(res, 200, 'application/json', JSON.stringify({ ok: true }));
+    });
+    return;
+  }
+
   send(res, 404, 'text/plain', 'not found');
 });
 
