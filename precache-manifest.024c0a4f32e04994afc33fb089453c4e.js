@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f32076cf0c0c95bb109266c7175a3051",
+    "revision": "a50933e4efb6165c498bdae52abadd8c",
     "url": "/index.html"
   },
   {
-    "revision": "64f9696d05139a5eb462",
+    "revision": "8df4e980a9998d3e9326",
     "url": "/static/css/2.e3905f8c.chunk.css"
   },
   {
-    "revision": "26542bfa3004c6d611bb",
+    "revision": "cb9b21b50a2150fd8072",
     "url": "/static/css/main.b0774e87.chunk.css"
   },
   {
-    "revision": "64f9696d05139a5eb462",
-    "url": "/static/js/2.9b6bcb73.chunk.js"
+    "revision": "8df4e980a9998d3e9326",
+    "url": "/static/js/2.4dfaaf36.chunk.js"
   },
   {
-    "revision": "03a8d7038c2a2b3709be922e038bd35a",
-    "url": "/static/js/2.9b6bcb73.chunk.js.LICENSE.txt"
+    "revision": "c87e50d81cc7b5311525cc6fd5482ea5",
+    "url": "/static/js/2.4dfaaf36.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "26542bfa3004c6d611bb",
-    "url": "/static/js/main.fc61e99a.chunk.js"
+    "revision": "cb9b21b50a2150fd8072",
+    "url": "/static/js/main.5d715dc0.chunk.js"
   },
   {
     "revision": "dd8147bbe7734801bdde",
@@ -524,6 +524,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Screen Shot 2017-02-16 at 9.32.48 PM copy.46f1d1eb.jpg"
   },
   {
+    "revision": "ff2b7924b27bae7160c8881549e50397",
+    "url": "/static/media/blog.ff2b7924.png"
+  },
+  {
     "revision": "3285127567ad4858cd7e2c89d194318a",
     "url": "/static/media/bookinsert copy.32851275.jpg"
   },
@@ -576,8 +580,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/setup.3c76fb5a.jpg"
   },
   {
+    "revision": "d47afa2df5bd70603c2a151602d77457",
+    "url": "/static/media/site-gallery.d47afa2d.jpg"
+  },
+  {
     "revision": "afcd057af7d1e799a86356c6ee68872f",
     "url": "/static/media/site-kiss.afcd057a.png"
+  },
+  {
+    "revision": "3b2e98c677fd426335a9de92ce37db72",
+    "url": "/static/media/site-projects.3b2e98c6.jpg"
+  },
+  {
+    "revision": "89d0353e7e0865fc52d6109c10ea76aa",
+    "url": "/static/media/site-resume.89d0353e.jpg"
+  },
+  {
+    "revision": "cdfe433d90cc7f33f55f5e83fdd662ff",
+    "url": "/static/media/site.cdfe433d.jpg"
   },
   {
     "revision": "8af792777871f81ea6facdcee412b672",
