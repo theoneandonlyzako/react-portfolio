@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 const NoMatch = () => {
   return (
     <Container className="p-5 h-100">
-      <Card>
+      <Card className="bg-dark text-light">
         <Card.Body className="text-center m-5">
           <Card.Title>
             <h2>Oops! that doesn't exist.</h2>

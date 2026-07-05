@@ -30,9 +30,6 @@ function Header() {
             <LinkContainer to="resume">
               <Nav.Link className="text-light">Resume</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="contact">
-              <Nav.Link className="text-light">Contact</Nav.Link>
-            </LinkContainer>
           </Nav>
           <ContactIcons></ContactIcons>
         </Navbar.Collapse>

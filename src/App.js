@@ -6,7 +6,6 @@ import Header from './components/Header';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 import Terminal from './pages/Terminal';
 import Footer from './components/Footer';
@@ -31,7 +30,6 @@ function App(){
             <Route exact path="/projects" component={Projects} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/resume" component={Resume} />
-            <Route exact path="/contact" component={Contact} />
             <Route path="/*" component={NoMatch} />
           </Switch>
         </main>

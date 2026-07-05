@@ -1,64 +1,89 @@
-# React Portfolio<br/>
-A personal, portfolio used for promoting and showcasing my work as a professional web developer to the world and give examples of past projects, experience and contact information<br/>
+# Zak Stamps Portfolio
+
+The personal portfolio of Zak Stamps: Audio Engineer, Technical Production Director, and Full Stack Web Developer based in the San Francisco Bay Area. It showcases the software I build, a gallery of production work from my career in live and broadcast audio, and my skills and experience.
 
 ## Links
 
-Repo Link: https://github.com/theoneandonlyzako/react-portfolio <br/>
-Deployed Link: https://zakstamps.com<br/><br/>
+- Live site: https://zakstamps.com
+- Repo: https://github.com/theoneandonlyzako/react-portfolio
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
+## Table of Contents
 
-## License
-This project is licensed under the Unlicense license.
-</br><br/>
+- [About](#about)
+- [Features](#features)
+- [Built With](#built-with)
+- [Running Locally](#running-locally)
+- [Deployment](#deployment)
+- [Contact](#contact)
+- [Screenshots](#screenshots)
+- [License](#license)
 
+## About
 
-## Table of Contents 
-* [Description](#description)
-* [Usage](#usage)
-* [Packages](#packages)
-* [Installation](#installation)
-* [Contributing](#contributing)
-* [Contact](#contact)
-* [Site Example](#example)
-</br><br/>
+A React single page application redesigned around a dark glass aesthetic with a purple to pink gradient theme. It highlights the products I build (the ProducerDash suite), a large photo gallery from my years in live and broadcast production, and an up to date resume.
 
-## Description
-A web application built with React to give job recruiters the ability to view my work as a web developer. Built with React, bootstrap, react-dom and Emailjs.</br><br/>
+## Features
 
-## Usage
-Provides a simple interface for displaying and showcasing my work as a professional web developer when applying for a new job. Or simply an avenue to showoff my latest projects and skills.
-</br>
+- Dark glass gradient design with animated accents
+- Animated terminal style intro on load
+- Filterable masonry photo gallery with a full screen lightbox and category filters
+- Projects showcase featuring the ProducerDash suite (ProducerDash, Stage Plot, PrompterFlow) alongside earlier projects
+- Live resume with education, skills, and a modern tech stack, including dynamic experience counters
+- Themed auto hiding scrollbar and subtle animated card borders
+- Fully responsive across desktop and mobile
 
-## Packages
-- React
-- fontawesome
-- bootstrap
-- emailjs
-- react-dom
-- react-router-dom
-- react-scripts
-- react-typist
-</br><br/>
+## Built With
 
-## Installation
-​1. Clone the repo</br>
-2. Install dependencies with `npm -i`</br>
-3. Run `npm start` to run the server and make the API live</br>
-</br><br/>
+- React and React Router (HashRouter)
+- Bootstrap and React Bootstrap
+- react-typist for the intro animation
+- OverlayScrollbars for the themed scrollbar
+- Font Awesome for icons
+- Google Fonts: Sora, Inter, and JetBrains Mono
+- Deployed to GitHub Pages via the gh-pages package
 
-## Contributing
-​Contributors: Zak Stamps With Lots of help from our trusty 'ol friend Google.
-</br><br/>
+## Running Locally
+
+1. Clone the repo
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm start`
+
+Note: this project uses an older Create React App toolchain. On Node 17 or newer, start it with the legacy OpenSSL provider:
+
+```
+NODE_OPTIONS=--openssl-legacy-provider npm start
+```
+
+## Deployment
+
+The site is hosted on GitHub Pages with the custom domain zakstamps.com. To build and publish:
+
+```
+NODE_OPTIONS=--openssl-legacy-provider npm run deploy
+```
+
+This builds the app and pushes the output to the `gh-pages` branch, which serves zakstamps.com.
 
 ## Contact
-If you have any questions about the repo, open an issue or contact me directly at theoneandonlyzako@gmail.com or visit my website at zakstamps.com
-<br/><br/>
 
-## Example
+Reach me at theoneandonlyzako@gmail.com, or connect through the icons in the site header and footer. The live site is always at zakstamps.com.
 
-![img](./src/assets/image/site.png)<br/></br>
-![img](./src/assets/image/site-projects.png)<br/></br>
-![img](./src/assets/image/site-resume.png)<br/></br>
-![img](./src/assets/image/site-contact.png)<br/></br>
+## Screenshots
+
+### Home and About
+![Home and About page](./src/assets/image/site.jpg)
+
+### Projects
+![Projects page](./src/assets/image/site-projects.jpg)
+
+### Gallery
+![Gallery page](./src/assets/image/site-gallery.jpg)
+
+### Resume
+![Resume page](./src/assets/image/site-resume.jpg)
+
+## License
+
+This project is licensed under the Unlicense.
