@@ -112,7 +112,8 @@ const server = http.createServer((req, res) => {
   send(res, 404, 'text/plain', 'not found');
 });
 
-server.listen(PORT, () => {
+// Bind to 127.0.0.1 so ONLY this Mac can reach it (not other devices on the network).
+server.listen(PORT, '127.0.0.1', () => {
   const u = 'http://localhost:' + PORT;
   console.log('\n  Gallery caption editor running at ' + u);
   console.log('  Edit captions, click Save, then run `npm run deploy` to publish.\n  Press Ctrl+C to stop.\n');
