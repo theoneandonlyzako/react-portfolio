@@ -25,7 +25,7 @@
   main { max-width:1100px; margin:0 auto; padding:1.25rem; }
   h2 { font-size:1rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin:2rem 0 .75rem; }
   .card { display:grid; grid-template-columns:200px 1fr; gap:1rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:1rem; }
-  .card img { width:200px; height:130px; object-fit:cover; border-radius:8px; background:#000; }
+  .card img { width:200px; height:130px; object-fit:cover; border-radius:8px; background:#000; cursor:zoom-in; }
   .card .fields { display:flex; flex-direction:column; gap:.55rem; min-width:0; }
   .card .file { font-size:.72rem; color:var(--muted); font-family:monospace; word-break:break-all; }
   .row { display:flex; gap:.55rem; }
@@ -38,9 +38,12 @@
   /* Projects */
   .pcard { display:grid; grid-template-columns:220px 1fr; gap:1rem; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem; margin-bottom:1rem; }
   .pcol { display:flex; flex-direction:column; gap:.5rem; }
-  .p-preview { width:220px; height:150px; object-fit:cover; border-radius:8px; background:#000; }
+  .p-preview { width:220px; height:150px; object-fit:cover; border-radius:8px; background:#000; cursor:zoom-in; }
   .p-image { width:100%; }
   .prow-actions { display:flex; gap:.5rem; margin-top:.25rem; }
+  /* Full-screen image viewer */
+  #lightbox { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.92); align-items:center; justify-content:center; cursor:zoom-out; }
+  #lightbox img { max-width:95vw; max-height:95vh; border-radius:8px; box-shadow:0 24px 70px rgba(0,0,0,.6); }
 </style>
 </head>
 <body>
@@ -83,6 +86,7 @@
 </main>
 <datalist id="cats"></datalist>
 <input type="file" id="projectfile" accept="image/*" style="display:none" />
+<div id="lightbox"><img alt="" /></div>
 
 <script>
 let DATA={photoMeta:{},videos:[],categoryOrder:[]}, IMAGES=[];
@@ -194,6 +198,11 @@ $('#search').addEventListener('input',applyFilter);
 $('#catfilter').addEventListener('change',applyFilter);
 $('#save').addEventListener('click',save);
 $('#publish').addEventListener('click',publish);
+
+// Full-screen image viewer: click a thumbnail to expand, click anywhere (or Escape) to close.
+document.addEventListener('click',(e)=>{ if(e.target.matches('.card img, .p-preview')){ const lb=$('#lightbox'); $('img',lb).src=e.target.src; lb.style.display='flex'; } });
+$('#lightbox').addEventListener('click',()=>{ $('#lightbox').style.display='none'; });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') $('#lightbox').style.display='none'; });
 $('#addvideo').addEventListener('click',()=>{ DATA=gather(); DATA.videos.push({youtubeId:'',title:'',description:'',category:'Uncategorized'}); renderVideos(); setStatus('Unsaved changes','dirty'); });
 $('#addprojvideo').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.videos.push({title:'',youtubeId:''}); renderProjects(); setStatus('Unsaved changes','dirty'); });
 $('#addproject').addEventListener('click',()=>{ PDATA=gatherProjects(); PDATA.projects.unshift({ title:'', description:'', key:'proj-'+Date.now(), image:PIMAGES[0]||'', deployed_app:'' }); renderProjects(); const c=document.querySelector('.pcard'); if(c){ c.scrollIntoView({block:'center'}); const ti=$('.p-title',c); if(ti) ti.focus(); } setStatus('Unsaved changes','dirty'); });
