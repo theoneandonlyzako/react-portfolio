@@ -16,7 +16,6 @@ The personal portfolio of Zak Stamps: Audio Engineer, Technical Production Direc
 - [Built With](#built-with)
 - [Running Locally](#running-locally)
 - [Deployment](#deployment)
-- [Contact](#contact)
 - [Screenshots](#screenshots)
 - [License](#license)
 
@@ -65,10 +64,6 @@ NODE_OPTIONS=--openssl-legacy-provider npm run deploy
 ```
 
 This builds the app and pushes the output to the `gh-pages` branch, which serves zakstamps.com.
-
-## Contact
-
-Reach me at theoneandonlyzako@gmail.com, or connect through the icons in the site header and footer. The live site is always at zakstamps.com.
 
 ## Screenshots
 
