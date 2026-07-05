@@ -11,12 +11,14 @@
  */
 const http = require('http');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
-const { exec } = require('child_process');
+const { exec, execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..', '..');
 const DATA = path.join(ROOT, 'src', 'data', 'galleryData.json');
 const GIGS = path.join(ROOT, 'src', 'assets', 'image', 'Gigs');
+const ORIGINALS = path.join(os.homedir(), 'Documents', 'CODING_PROJECTS', 'zakstamps-gallery-originals', 'photos-fullres');
 const PORT = 4400;
 
 const MIME = {
@@ -71,6 +73,37 @@ const server = http.createServer((req, res) => {
         return send(res, 200, 'application/json', JSON.stringify({ ok: true }));
       } catch (e) {
         return send(res, 400, 'application/json', JSON.stringify({ ok: false, error: String(e && e.message || e) }));
+      }
+    });
+    return;
+  }
+
+  if (req.method === 'POST' && p === '/api/upload') {
+    const rawName = url.searchParams.get('name') || 'photo';
+    const chunks = [];
+    req.on('data', (c) => chunks.push(c));
+    req.on('end', () => {
+      try {
+        const buf = Buffer.concat(chunks);
+        if (!buf.length) throw new Error('empty upload');
+        const safeOrig = path.basename(rawName).replace(/[^a-zA-Z0-9._-]+/g, '_');
+        let base = safeOrig.replace(/\.[^.]+$/, '') || 'photo';
+        // pick a non-colliding .jpg name in Gigs (everything normalizes to jpg)
+        let out = base + '.jpg';
+        let i = 1;
+        while (fs.existsSync(path.join(GIGS, out))) out = base + '-' + (i++) + '.jpg';
+        // write the raw upload to a temp file
+        const tmp = path.join(os.tmpdir(), 'gedit_' + Date.now() + '_' + safeOrig);
+        fs.writeFileSync(tmp, buf);
+        // back up the full-resolution original
+        try { fs.mkdirSync(ORIGINALS, { recursive: true }); fs.copyFileSync(tmp, path.join(ORIGINALS, safeOrig)); } catch (e) {}
+        // optimize into Gigs (resize longest side to 1600, jpeg quality 72)
+        execFileSync('sips', ['-Z', '1600', '-s', 'format', 'jpeg', '-s', 'formatOptions', '72', tmp, '--out', path.join(GIGS, out)], { stdio: 'ignore' });
+        try { fs.unlinkSync(tmp); } catch (e) {}
+        if (!fs.existsSync(path.join(GIGS, out))) throw new Error('could not process image (is it a valid photo?)');
+        return send(res, 200, 'application/json', JSON.stringify({ ok: true, file: out }));
+      } catch (e) {
+        return send(res, 400, 'application/json', JSON.stringify({ ok: false, error: String((e && e.message) || e) }));
       }
     });
     return;

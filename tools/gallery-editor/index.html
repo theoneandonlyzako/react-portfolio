@@ -47,7 +47,11 @@
 </header>
 <main>
   <p class="hint">Edit any field, then click Save. Changes write to <code>src/data/galleryData.json</code>. Deploy afterward to publish.</p>
-  <h2>Photos (<span id="pcount">0</span>)</h2>
+  <div style="display:flex;align-items:center;gap:1rem;margin:2rem 0 .75rem;">
+    <h2 style="margin:0;">Photos (<span id="pcount">0</span>)</h2>
+    <button class="btn secondary" id="addphotosbtn">+ Add photos</button>
+    <input type="file" id="addphotos" accept="image/*" multiple style="display:none" />
+  </div>
   <div id="photos"></div>
   <h2>Videos</h2>
   <div id="videos"></div>
@@ -157,6 +161,29 @@ $('#save').addEventListener('click',save);
 $('#addvideo').addEventListener('click',()=>{ DATA.videos = gather().videos.concat({youtubeId:'',title:'',description:'',category:'Uncategorized'}); renderVideos(); setStatus('Unsaved changes','dirty'); });
 document.addEventListener('click',(e)=>{ if(e.target.classList.contains('v-remove')){ const cards=[...document.querySelectorAll('.vcard')]; const i=cards.indexOf(e.target.closest('.vcard')); DATA.videos=gather().videos; DATA.videos.splice(i,1); renderVideos(); setStatus('Unsaved changes','dirty'); } });
 window.addEventListener('beforeunload',(e)=>{ if($('#status').classList.contains('dirty')){ e.preventDefault(); e.returnValue=''; } });
+
+async function uploadFiles(files){
+  for(const f of files){
+    setStatus('Uploading '+f.name+' ...','');
+    try{
+      const buf = await f.arrayBuffer();
+      const r = await fetch('/api/upload?name='+encodeURIComponent(f.name),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:buf});
+      const j = await r.json();
+      if(!j.ok){ setStatus('Upload failed: '+j.error,'dirty'); continue; }
+      // keep any unsaved edits, then add the new photo at the top
+      const cur = gather();
+      DATA.photoMeta = cur.photoMeta;
+      DATA.videos = cur.videos;
+      IMAGES.unshift(j.file);
+      renderPhotos(); renderVideos(); applyFilter();
+      const card = document.querySelector('.card');
+      if(card){ card.scrollIntoView({block:'center'}); card.style.outline='2px solid var(--accent2)'; setTimeout(()=>{card.style.outline='';},1500); const ti=$('.f-title',card); if(ti) ti.focus(); }
+      setStatus('Added '+j.file+'. Caption it and Save.','dirty');
+    }catch(e){ setStatus('Upload error: '+e.message,'dirty'); }
+  }
+}
+$('#addphotosbtn').addEventListener('click',()=>$('#addphotos').click());
+$('#addphotos').addEventListener('change',(e)=>{ const fs=[...e.target.files]; e.target.value=''; uploadFiles(fs); });
 
 (async function init(){
   DATA = await (await fetch('/api/data')).json();
