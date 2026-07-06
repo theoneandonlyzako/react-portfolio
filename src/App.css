@@ -326,6 +326,21 @@ a:hover {
   margin-bottom: 0.35rem;
 }
 
+/* ---------- Projects: masonry grid ---------- */
+.projects-masonry {
+  column-count: 2;
+  column-gap: 2.5rem;
+}
+@media (max-width: 768px) { .projects-masonry { column-count: 1; } }
+
+.project-cell {
+  break-inside: avoid;
+  margin: 0 0 2.5rem;
+}
+.project-cell .card.bg-dark {
+  margin: 0;
+}
+
 /* ---------- Buttons ---------- */
 .btn,
 .button {

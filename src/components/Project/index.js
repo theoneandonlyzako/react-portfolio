@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 function Project({project}) {
   return (
-    <Card className="m-lg-4 m-2 d-flex bg-dark justify-content-center">
+    <Card className="d-flex bg-dark justify-content-center">
         <Card.Body>
           <Card.Title className="d-flex justify-content-between align-items-center">
             <a href={project.deployed_app} target="_blank" rel="noopener noreferrer">

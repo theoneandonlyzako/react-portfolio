@@ -4,7 +4,6 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 // import custom components
 import Project from '../components/Project';
@@ -30,14 +29,14 @@ function Projects() {
         </Container>
       </Jumbotron>
 
-      <Container className="p-3 ">
-        <Row>
+      <Container className="p-3">
+        <div className="projects-masonry">
           {projects.map((project, i) => (
-            <Col s={12} lg={6} key={project.key || i}>
+            <div className="project-cell" key={project.key || i}>
               <Project project={project} />
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
       </Container>
 
       <Container className="p-3">
