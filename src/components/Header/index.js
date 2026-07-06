@@ -24,9 +24,10 @@ function Header() {
             <LinkContainer to="/projects">
               <Nav.Link className="text-light">Projects</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/gallery">
+            {/* Gallery hidden until ready — re-enable this link and the /gallery route in App.js to make it public again. */}
+            {/* <LinkContainer to="/gallery">
               <Nav.Link className="text-light">Gallery</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> */}
             <LinkContainer to="resume">
               <Nav.Link className="text-light">Resume</Nav.Link>
             </LinkContainer>
