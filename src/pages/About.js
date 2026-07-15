@@ -85,13 +85,12 @@ function About() {
           </p>
 
           <p className="p-text p-text-color">
-            I learned to program on DOS in the 1990s, started coding around the launch of Myspace in
-            2003 with basic HTML, and moved into Python microcontroller programming in 2012. Once I
-            picked up JavaScript in 2021, there was no turning back. That led me to web development
-            and a Berkeley bootcamp, where I earned my Full Stack Web Development certificate in 2021.
-            It's a field I absolutely love, and I plan to keep growing through continued education in
-            computer science and software development. Still, I can't leave music behind. I currently serve as the
-            Technical Production Director at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
+            I learned to program on DOS in the 1990s, wrote my first HTML around the time Myspace
+            launched in 2003, and moved into Python microcontroller programming in 2012. Picking up
+            JavaScript in 2021 was the turning point that pulled me into web development and a Berkeley
+            bootcamp, where I earned my Full Stack Web Development certificate. It's a field I love, and
+            I plan to keep growing in computer science and software development. Music has always been
+            the other half of the story. I currently serve as the Technical Production Director at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
             amazing people on a mission to reach the unchurched.
           </p>
           <p className="p-text p-text-color">
