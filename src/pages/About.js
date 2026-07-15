@@ -90,8 +90,8 @@ function About() {
             picked up JavaScript in 2021, there was no turning back. That led me to web development
             and a Berkeley bootcamp, where I earned my Full Stack Web Development certificate in 2021.
             It's a field I absolutely love, and I plan to keep growing through continued education in
-            computer science and software development. Still, I can't leave music behind. I'm now the
-            Director of Technology at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
+            computer science and software development. Still, I can't leave music behind. I currently serve as the
+            Technical Production Director at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
             amazing people on a mission to reach the unchurched.
           </p>
           <p className="p-text p-text-color">
