@@ -736,7 +736,11 @@ a:hover {
   padding: 1.5px;
   background: conic-gradient(
     from var(--worm-angle),
-    transparent 0deg 255deg,
+    transparent 0deg 75deg,
+    rgba(139, 92, 246, 0.2) 110deg,
+    var(--accent-1) 145deg,
+    var(--accent-2) 172deg,
+    transparent 180deg 255deg,
     rgba(139, 92, 246, 0.2) 290deg,
     var(--accent-1) 325deg,
     var(--accent-2) 352deg,

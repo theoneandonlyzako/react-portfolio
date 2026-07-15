@@ -75,9 +75,8 @@ function About() {
           </p>
 
           <p className="p-text p-text-color">
-            I've spent most of my life devoted to audio, spanning the church world, high end festivals
-            and concerts, and high production theatre. I got my start in church work, then discovered
-            live theatre and fell in love. Since then I've had the pleasure of working on major
+            My audio work has also taken me through high end festivals and concerts and into high
+            production theatre, which I fell in love with. I've had the pleasure of working on major
             productions, including: Annie, Godspell, How to Succeed in Business Without Really Trying,
             Footloose, The Lion King, Peter Pan, The Nutcracker, <u><a href="https://www.mercurynews.com/2017/01/25/powerful-cabaret-opens-hillbarn-theatre-season/" target="_blank" rel="noopener noreferrer">Cabaret</a></u>, <u><a href="https://www.mercurynews.com/2017/03/15/have-you-heard-the-latest-about-rumors-at-hillbarn/" target="_blank" rel="noopener noreferrer">Rumors</a></u>,
             Mary Poppins, The Producers, Music Man, Singing in the Rain, Million Dollar Quartet, Aida, <u><a href="http://www.aislesaysanfrancisco.com/2019/03/joseph-and-amazing-technicolor.html" target="_blank" rel="noopener noreferrer">Joseph and the Amazing Technicolor Dreamcoat</a></u>, <u><a href="https://morganhilllife.com/2018/08/22/curtain-up-theater-review-by-camille-bound-saturday-night-fever/" target="_blank" rel="noopener noreferrer">Saturday Night Fever</a></u>,
