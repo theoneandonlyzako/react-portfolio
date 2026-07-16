@@ -19,6 +19,11 @@ function Projects() {
   const projects = projectsData.projects.map((p) => ({ ...p, imageSrc: resolveImage(p.image) }));
   const videos = projectsData.videos || [];
 
+  // Feature the real products and apps up top, in this order; everything else falls below.
+  const featuredKeys = ['producerdash', 'prompterflow', 'stageplot', 'budget-planner'];
+  const featured = featuredKeys.map((k) => projects.find((p) => p.key === k)).filter(Boolean);
+  const others = projects.filter((p) => !featuredKeys.includes(p.key));
+
   return (
     <>
       <Jumbotron fluid className="p-5 mb-0 shadow">
@@ -31,8 +36,15 @@ function Projects() {
 
       <Container className="p-3">
         <div className="projects-masonry">
-          {projects.map((project, i) => (
-            <div className="project-cell" key={project.key || i}>
+          {featured.map((project, i) => (
+            <div className="project-cell" key={project.key || ('f' + i)}>
+              <Project project={project} />
+            </div>
+          ))}
+        </div>
+        <div className="projects-masonry projects-masonry-more">
+          {others.map((project, i) => (
+            <div className="project-cell" key={project.key || ('o' + i)}>
               <Project project={project} />
             </div>
           ))}
