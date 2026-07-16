@@ -88,9 +88,7 @@ function About() {
             launched in 2003, and moved into Python microcontroller programming in 2012. Picking up
             JavaScript in 2021 was the turning point that pulled me into web development and a Berkeley
             bootcamp, where I earned my Full Stack Web Development certificate. It's a field I love, and
-            I plan to keep growing in computer science and software development. Music has always been
-            the other half of the story. I currently serve as the Technical Production Director at <u><a href="https://thisis.church/" target="_blank" rel="noopener noreferrer">Northgate CF</a></u> in Benicia, teamed up with some
-            amazing people on a mission to reach the unchurched.
+            I plan to keep growing in computer science and software development.
           </p>
           <p className="p-text p-text-color">
             When I'm not in front of a screen, you'll find me cooking, gardening far too much, or
