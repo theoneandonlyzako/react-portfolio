@@ -47,7 +47,7 @@ function About() {
           <h3 class="p-text-color">About Me</h3>
           <p className="p-text p-text-color">
             I've spent the last {yearsImmersed} years working in audio, across live sound, broadcast,
-            post production, and music. It's the thing I keep coming back to.
+            post production. It's the thing I keep coming back to.
           </p>
 
           <p className="p-text p-text-color">
