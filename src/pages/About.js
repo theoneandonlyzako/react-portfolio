@@ -46,53 +46,52 @@ function About() {
         <Container className="p-5 bg-dark">
           <h3 class="p-text-color">About Me</h3>
           <p className="p-text p-text-color">
-            I have been immersed in the wide world of audio production for the
-            past {yearsImmersed} years spanning the worlds of live sound, broadcast audio,
-            post production audio, and music production.</p>
-
-          <p class="p-text p-text-color">
-            I’ve mixed and worked with a diverse group of artists over the course 
-            of my career including Praise One, Valley Worship, Country music artist Brandon Hamilton, 
-            Filipino sensations IntroVoys, Christian artists MercyMe, for KING & COUNTRY, Tauren Wells, 
-            Rend Collective, Phil Wickham, Josiah James and Arron Hines. I’ve also worked on and managed projects for corporate 
-            and broadcast clients including ESPN, and Stanford University.
+            I've spent the last {yearsImmersed} years working in audio, across live sound, broadcast,
+            post production, and music. It's the thing I keep coming back to.
           </p>
 
           <p className="p-text p-text-color">
-            I spent {yearsWorship} years focused on audio in Houses of Worship and served as the Technical
-            Director for a large church in the San Francisco bay area, <u><a href="https://www.newnorth.church/" target="_blank" rel="noopener noreferrer">New North Church</a></u> located in San Bruno, CA 
-            for 5 of those years. At New North, I oversaw all technical production related needs for the Sunday
-            morning experience including mixing, managing and training volunteers and staff. Over the course of 
-            my time on staff, I supervised two major system upgrades/installations, upgraded FOH and monitor 
-            consoles, redesigned the entire audio and video infrastructure, and optimized the production systems 
-            religiously.
-          </p>
-
-          <p class="p-text p-text-color">
-            In addition, I was featured in a <u><a href="https://www.churchproduction.com/daily411/clear-com%E2%80%99s-freespeak-ii-intercom-brings-new-north-church-to/" target="_blank" rel="noopener noreferrer">Church Production Magazine article</a></u>, covering our purchase and install 
-            of the (at the time) freshly released <u><a href="https://www.broadcastbeat.com/clear-coms-freespeak-ii-intercom-brings-new-north-church-together-volunteer-involvement-grows-with-clearer-communications/" target="_blank" rel="noopener noreferrer">ClearCom Freespeak ii system</a></u>. 
-            I also produced and maintained the New North Weekly podcasts and New North Kids weekly YouTube channels. 
+            Along the way I've gotten to mix for a lot of different artists: Praise One, Valley Worship,
+            country music artist Brandon Hamilton, the Filipino band IntroVoys, and a handful of Christian
+            artists like MercyMe, for KING & COUNTRY, Tauren Wells, Rend Collective, Phil Wickham,
+            Josiah James, and Arron Hines. I've also worked on projects for corporate and broadcast
+            clients, including ESPN and Stanford University.
           </p>
 
           <p className="p-text p-text-color">
-            My audio work has also taken me through high end festivals and concerts and into high
-            production theatre, which I fell in love with. I've had the pleasure of working on major
-            productions, including: Annie, Godspell, How to Succeed in Business Without Really Trying,
-            Footloose, The Lion King, Peter Pan, The Nutcracker, <u><a href="https://www.mercurynews.com/2017/01/25/powerful-cabaret-opens-hillbarn-theatre-season/" target="_blank" rel="noopener noreferrer">Cabaret</a></u>, <u><a href="https://www.mercurynews.com/2017/03/15/have-you-heard-the-latest-about-rumors-at-hillbarn/" target="_blank" rel="noopener noreferrer">Rumors</a></u>,
+            For about {yearsWorship} years my focus was audio in Houses of Worship, and for five of those
+            years I was the Technical Director at <u><a href="https://www.newnorth.church/" target="_blank" rel="noopener noreferrer">New North Church</a></u>, a large church in San Bruno, CA.
+            The role was really the technical side of the Sunday morning experience: mixing, and helping
+            train the volunteers and staff who made it happen. During my time there we took on two system
+            installs, replaced the front of house and monitor consoles, and rebuilt the audio and video
+            infrastructure, and I spent a lot of hours tuning the production systems.
+          </p>
+
+          <p className="p-text p-text-color">
+            Somewhere in there we ended up in a <u><a href="https://www.churchproduction.com/daily411/clear-com%E2%80%99s-freespeak-ii-intercom-brings-new-north-church-to/" target="_blank" rel="noopener noreferrer">Church Production Magazine article</a></u> about our install of the <u><a href="https://www.broadcastbeat.com/clear-coms-freespeak-ii-intercom-brings-new-north-church-together-volunteer-involvement-grows-with-clearer-communications/" target="_blank" rel="noopener noreferrer">ClearCom Freespeak ii system</a></u>, which had just come out
+            at the time. I also produced and looked after the New North Weekly podcasts and the New North
+            Kids weekly YouTube channel.
+          </p>
+
+          <p className="p-text p-text-color">
+            Audio has taken me through festivals and concerts too, and eventually into theatre, which I
+            honestly fell for. I've been lucky to work on a good number of shows: Annie, Godspell, How to
+            Succeed in Business Without Really Trying, Footloose, The Lion King, Peter Pan, The Nutcracker, <u><a href="https://www.mercurynews.com/2017/01/25/powerful-cabaret-opens-hillbarn-theatre-season/" target="_blank" rel="noopener noreferrer">Cabaret</a></u>, <u><a href="https://www.mercurynews.com/2017/03/15/have-you-heard-the-latest-about-rumors-at-hillbarn/" target="_blank" rel="noopener noreferrer">Rumors</a></u>,
             Mary Poppins, The Producers, Music Man, Singing in the Rain, Million Dollar Quartet, Aida, <u><a href="http://www.aislesaysanfrancisco.com/2019/03/joseph-and-amazing-technicolor.html" target="_blank" rel="noopener noreferrer">Joseph and the Amazing Technicolor Dreamcoat</a></u>, <u><a href="https://morganhilllife.com/2018/08/22/curtain-up-theater-review-by-camille-bound-saturday-night-fever/" target="_blank" rel="noopener noreferrer">Saturday Night Fever</a></u>,
             Smokey Joe's Cafe, and Next to Normal.
           </p>
 
           <p className="p-text p-text-color">
-            I learned to program on DOS in the 1990s, wrote my first HTML around the time Myspace
-            launched in 2003, and moved into Python microcontroller programming in 2012. Picking up
-            JavaScript in 2021 was the turning point that pulled me into web development and a Berkeley
-            bootcamp, where I earned my Full Stack Web Development certificate. It's a field I love, and
-            I plan to keep growing in computer science and software development.
+            On the coding side, I got my start on DOS in the 1990s, wrote my first HTML around the time
+            Myspace launched in 2003, and moved into Python for microcontrollers in 2012. Picking up
+            JavaScript in 2021 was what really pulled me into web development and a Berkeley bootcamp,
+            where I earned my Full Stack Web Development certificate. It's a field I'm still learning, and
+            I plan to keep at it.
           </p>
+
           <p className="p-text p-text-color">
-            When I'm not in front of a screen, you'll find me cooking, gardening far too much, or
-            spending time with family. Thanks for stopping by!
+            When I'm not in front of a screen, you'll usually find me cooking, gardening far too much, or
+            spending time with family. Thanks for stopping by.
           </p>
         </Container>
       </Container>
