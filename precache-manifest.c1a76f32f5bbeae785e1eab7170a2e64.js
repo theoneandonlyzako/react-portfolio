@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "229cfd5d16d6e64624ba184721683177",
+    "revision": "136a03492965ada115b42e69314acfd4",
     "url": "/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.0f2f3185.chunk.css"
   },
   {
-    "revision": "f14f2130d6a872108774",
+    "revision": "6b4dd91bb909e9087357",
     "url": "/static/css/main.e6d8f778.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.271e1d77.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f14f2130d6a872108774",
-    "url": "/static/js/main.dabc17af.chunk.js"
+    "revision": "6b4dd91bb909e9087357",
+    "url": "/static/js/main.4d4562d1.chunk.js"
   },
   {
     "revision": "dd8147bbe7734801bdde",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/blog.ff2b7924.png"
   },
   {
-    "revision": "ea2539891e5a04b9a850012fe8fc659b",
-    "url": "/static/media/budget_tracker.ea253989.png"
+    "revision": "f7ca51ba748636ec19c71c665e3e9203",
+    "url": "/static/media/budget_planner.f7ca51ba.jpg"
   },
   {
     "revision": "66249afdc13ed3f933c5c6c87d12c81b",
