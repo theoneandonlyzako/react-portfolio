@@ -6,6 +6,7 @@ import * as serviceWorker from './service-worker';
 import { HashRouter as Router } from 'react-router-dom';
 import { OverlayScrollbars } from 'overlayscrollbars';
 import 'overlayscrollbars/styles/overlayscrollbars.css';
+import { initScrollReveal } from './scrollReveal';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,10 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// Fade + pop each item in as it scrolls into view, site-wide. Runs right after
+// render so items are hidden before the first paint (no flash).
+initScrollReveal();
 
 // Themed overlay scrollbar — floats over the content (no reserved gutter) and
 // auto-hides when idle. Initialized on <body> so native page scroll, the sticky
