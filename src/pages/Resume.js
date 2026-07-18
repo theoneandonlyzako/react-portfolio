@@ -18,6 +18,7 @@ function Resume() {
         </Container>
       </Jumbotron>
 
+      {/* Resume PDF button hidden for now — uncomment to bring it back.
       <Container className="py-5 d-flex flex-column flex-md-row justify-content-center align-items-center">
         <Button
           className="shadow"
@@ -27,6 +28,7 @@ function Resume() {
             View My Resume
         </Button>
       </Container>
+      */}
 
       <Container>
         <CardDeck>
