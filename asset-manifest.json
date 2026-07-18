@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.4c7ed36b.chunk.css",
-    "main.js": "/static/js/main.ad7be464.chunk.js",
+    "main.css": "/static/css/main.8a485d38.chunk.css",
+    "main.js": "/static/js/main.4a40dcc9.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.e312f208.js",
     "static/css/2.0f2f3185.chunk.css": "/static/css/2.0f2f3185.chunk.css",
-    "static/js/2.8da88b9d.chunk.js": "/static/js/2.8da88b9d.chunk.js",
+    "static/js/2.861a3660.chunk.js": "/static/js/2.861a3660.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.f3822de7f35ef2ad4fc6e3589e27dd1b.js": "/precache-manifest.f3822de7f35ef2ad4fc6e3589e27dd1b.js",
+    "precache-manifest.92a1b02594a10d6912e2873ce1cd067e.js": "/precache-manifest.92a1b02594a10d6912e2873ce1cd067e.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.8da88b9d.chunk.js.LICENSE.txt": "/static/js/2.8da88b9d.chunk.js.LICENSE.txt",
+    "static/js/2.861a3660.chunk.js.LICENSE.txt": "/static/js/2.861a3660.chunk.js.LICENSE.txt",
     "static/media/blog.png": "/static/media/blog.ff2b7924.png",
     "static/media/budget_planner.jpg": "/static/media/budget_planner.f7ca51ba.jpg",
     "static/media/generator.png": "/static/media/generator.66249afd.png",
@@ -28,8 +28,8 @@
   "entrypoints": [
     "static/js/runtime-main.e312f208.js",
     "static/css/2.0f2f3185.chunk.css",
-    "static/js/2.8da88b9d.chunk.js",
-    "static/css/main.4c7ed36b.chunk.css",
-    "static/js/main.ad7be464.chunk.js"
+    "static/js/2.861a3660.chunk.js",
+    "static/css/main.8a485d38.chunk.css",
+    "static/js/main.4a40dcc9.chunk.js"
   ]
 }
