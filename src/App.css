@@ -371,6 +371,29 @@ a:hover {
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.4) !important;
 }
 
+/* Donate button (header) — same donation flow as producerdash.com, themed to the site */
+.donate-btn {
+  display: inline-block;
+  background: var(--grad);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.45rem 1.15rem;
+  border-radius: 999px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(236, 72, 153, 0.6);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+.donate-btn:hover,
+.donate-btn:focus {
+  color: #fff !important;
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 16px 34px -12px rgba(236, 72, 153, 0.75);
+}
+
 /* ---------- Contact form ---------- */
 .contact-bg {
   max-width: 820px;

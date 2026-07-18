@@ -8,11 +8,6 @@ function ContactIcons() {
       "classes": "far fa-envelope"
     },
     {
-      "name": "venmo",
-      "url": "https://www.venmo.com/u/Zak-Stamps",
-      "classes": "fab fa-vimeo-square"
-    },
-    {
       "name": "linkedin",
       "url": "https://www.linkedin.com/in/zak-stamps-3738a44a/",
       "classes": "fab fa-linkedin"

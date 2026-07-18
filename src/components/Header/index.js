@@ -8,6 +8,9 @@ import Navbar from 'react-bootstrap/Navbar';
 // import custom components
 import ContactIcons from '../ContactIcons'
 
+// Pay-what-you-want donation (same Stripe link + backend logic as producerdash.com).
+const DONATE_LINK = 'https://buy.stripe.com/cNi9ATfc31Ca9MG2yobsc03';
+
 function Header() {
   return(
     <>
@@ -32,6 +35,13 @@ function Header() {
               <Nav.Link className="text-light">Resume</Nav.Link>
             </LinkContainer>
           </Nav>
+          <a
+            className="donate-btn mr-lg-3 my-2 my-lg-0"
+            href={DONATE_LINK}
+            target="_blank"
+            rel="noopener noreferrer">
+            Donate
+          </a>
           <ContactIcons></ContactIcons>
         </Navbar.Collapse>
       </Navbar>
