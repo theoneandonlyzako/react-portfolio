@@ -90,8 +90,9 @@ function About() {
           </p>
 
           <p className="p-text p-text-color">
-            When I'm not in front of a screen, you'll usually find me cooking, gardening far too much, or
-            spending time with family. Thanks for stopping by.
+            When I'm not in front of a screen, you'll usually find me playing golf, gardening, cooking,
+            golfing far too much, or just relaxing and spending time with family. Thanks for stopping by.
+            Reach out and say Hi!
           </p>
         </Container>
       </Container>
