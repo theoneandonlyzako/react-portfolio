@@ -325,6 +325,13 @@ a:hover {
   color: var(--text-muted);
   margin-bottom: 0.35rem;
 }
+.experience-card p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.experience-card p:last-child {
+  margin-bottom: 0;
+}
 
 /* ---------- Projects: masonry grid ---------- */
 .projects-masonry {

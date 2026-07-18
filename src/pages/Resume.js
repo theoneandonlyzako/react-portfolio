@@ -99,6 +99,27 @@ function Resume() {
           </Card>
         </CardDeck>
       </Container>
+
+      <Container className="mt-4 pb-5">
+        <CardDeck>
+          <Card className="p-2 text-light bg-dark experience-card">
+            <Card.Body>
+              <h3>Experience</h3>
+              <p className="p-text p-text-color">
+                I'm a technical production director and audio engineer with about 30 years in
+                professional production, and a full stack software developer. My production career spans
+                live sound, broadcast, post production, theatre, and houses of worship, mixing for
+                artists like IntroVoys and Arron Hines, along with corporate and broadcast work for
+                clients like ESPN and Stanford University. I've led technical production as Director of
+                Technology at New North Church, Technical Coordinator at Central Peninsula Church, and
+                Sound Designer and Mixer for Broadway By The Bay at The Fox Theatre, where I designed,
+                installed, and mixed full theatrical seasons, working across AVL systems and DSP, live
+                and post production sound, microcontrollers and IOT, and Mac, Windows, and Linux.
+              </p>
+            </Card.Body>
+          </Card>
+        </CardDeck>
+      </Container>
     </>
   )
 }
