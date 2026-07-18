@@ -3,11 +3,6 @@ import React from 'react';
 function ContactIcons() {
   const contactLinks = [
     {
-      "name": "email",
-      "url": "mailto:zakstamps@gmail.com",
-      "classes": "far fa-envelope"
-    },
-    {
       "name": "linkedin",
       "url": "https://www.linkedin.com/in/zak-stamps-3738a44a/",
       "classes": "fab fa-linkedin"
